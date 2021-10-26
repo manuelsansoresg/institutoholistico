@@ -1,132 +1,597 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en-US" dir="ltr">
 
-        <title>Laravel</title>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
-        <!-- Styles -->
-        <style>
-            /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */html{line-height:1.15;-webkit-text-size-adjust:100%}body{margin:0}a{background-color:transparent}[hidden]{display:none}html{font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;line-height:1.5}*,:after,:before{box-sizing:border-box;border:0 solid #e2e8f0}a{color:inherit;text-decoration:inherit}svg,video{display:block;vertical-align:middle}video{max-width:100%;height:auto}.bg-white{--bg-opacity:1;background-color:#fff;background-color:rgba(255,255,255,var(--bg-opacity))}.bg-gray-100{--bg-opacity:1;background-color:#f7fafc;background-color:rgba(247,250,252,var(--bg-opacity))}.border-gray-200{--border-opacity:1;border-color:#edf2f7;border-color:rgba(237,242,247,var(--border-opacity))}.border-t{border-top-width:1px}.flex{display:flex}.grid{display:grid}.hidden{display:none}.items-center{align-items:center}.justify-center{justify-content:center}.font-semibold{font-weight:600}.h-5{height:1.25rem}.h-8{height:2rem}.h-16{height:4rem}.text-sm{font-size:.875rem}.text-lg{font-size:1.125rem}.leading-7{line-height:1.75rem}.mx-auto{margin-left:auto;margin-right:auto}.ml-1{margin-left:.25rem}.mt-2{margin-top:.5rem}.mr-2{margin-right:.5rem}.ml-2{margin-left:.5rem}.mt-4{margin-top:1rem}.ml-4{margin-left:1rem}.mt-8{margin-top:2rem}.ml-12{margin-left:3rem}.-mt-px{margin-top:-1px}.max-w-6xl{max-width:72rem}.min-h-screen{min-height:100vh}.overflow-hidden{overflow:hidden}.p-6{padding:1.5rem}.py-4{padding-top:1rem;padding-bottom:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.pt-8{padding-top:2rem}.fixed{position:fixed}.relative{position:relative}.top-0{top:0}.right-0{right:0}.shadow{box-shadow:0 1px 3px 0 rgba(0,0,0,.1),0 1px 2px 0 rgba(0,0,0,.06)}.text-center{text-align:center}.text-gray-200{--text-opacity:1;color:#edf2f7;color:rgba(237,242,247,var(--text-opacity))}.text-gray-300{--text-opacity:1;color:#e2e8f0;color:rgba(226,232,240,var(--text-opacity))}.text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.text-gray-500{--text-opacity:1;color:#a0aec0;color:rgba(160,174,192,var(--text-opacity))}.text-gray-600{--text-opacity:1;color:#718096;color:rgba(113,128,150,var(--text-opacity))}.text-gray-700{--text-opacity:1;color:#4a5568;color:rgba(74,85,104,var(--text-opacity))}.text-gray-900{--text-opacity:1;color:#1a202c;color:rgba(26,32,44,var(--text-opacity))}.underline{text-decoration:underline}.antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}.w-5{width:1.25rem}.w-8{width:2rem}.w-auto{width:auto}.grid-cols-1{grid-template-columns:repeat(1,minmax(0,1fr))}@media (min-width:640px){.sm\:rounded-lg{border-radius:.5rem}.sm\:block{display:block}.sm\:items-center{align-items:center}.sm\:justify-start{justify-content:flex-start}.sm\:justify-between{justify-content:space-between}.sm\:h-20{height:5rem}.sm\:ml-0{margin-left:0}.sm\:px-6{padding-left:1.5rem;padding-right:1.5rem}.sm\:pt-0{padding-top:0}.sm\:text-left{text-align:left}.sm\:text-right{text-align:right}}@media (min-width:768px){.md\:border-t-0{border-top-width:0}.md\:border-l{border-left-width:1px}.md\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr))}}@media (min-width:1024px){.lg\:px-8{padding-left:2rem;padding-right:2rem}}@media (prefers-color-scheme:dark){.dark\:bg-gray-800{--bg-opacity:1;background-color:#2d3748;background-color:rgba(45,55,72,var(--bg-opacity))}.dark\:bg-gray-900{--bg-opacity:1;background-color:#1a202c;background-color:rgba(26,32,44,var(--bg-opacity))}.dark\:border-gray-700{--border-opacity:1;border-color:#4a5568;border-color:rgba(74,85,104,var(--border-opacity))}.dark\:text-white{--text-opacity:1;color:#fff;color:rgba(255,255,255,var(--text-opacity))}.dark\:text-gray-400{--text-opacity:1;color:#cbd5e0;color:rgba(203,213,224,var(--text-opacity))}.dark\:text-gray-500{--tw-text-opacity:1;color:#6b7280;color:rgba(107,114,128,var(--tw-text-opacity))}}
-        </style>
+    <!-- ===============================================-->
+    <!--    Document Title-->
+    <!-- ===============================================-->
+    <title></title>
 
-        <style>
-            body {
-                font-family: 'Nunito', sans-serif;
-            }
-        </style>
-    </head>
-    <body class="antialiased">
-        <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
-            @if (Route::has('login'))
-                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                    @auth
-                        <a href="{{ url('/home') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Home</a>
-                    @else
-                        <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a>
 
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a>
-                        @endif
-                    @endauth
+    <!-- ===============================================-->
+    <!--    Favicons-->
+    <!-- ===============================================-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicons/favicon.ico">
+    <link rel="manifest" href="/img/favicons/manifest.json">
+    <meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+    <meta name="theme-color" content="#ffffff">
+
+
+    <!-- ===============================================-->
+    <!--    Stylesheets-->
+    <!-- ===============================================-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="/css/theme.css" rel="stylesheet" />
+    <link href="/css/owl.carousel.min.css" rel="stylesheet" />
+    <link href="/css/owl.theme.default.min.css" rel="stylesheet" />
+    <link href="/css/app.css" rel="stylesheet" />
+
+</head>
+
+
+<body>
+
+    <!-- ===============================================-->
+    <!--    Main Content-->
+    <!-- ===============================================-->
+    <main class="main" id="top">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
+            <div class="container"><a class="navbar-brand d-flex align-items-center fw-semi-bold fs-3"
+                    href="index.html"> <img class="me-3 logoheader" src="/img/gallery/logo.png" alt="" /></a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation"><span
+                        class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-medium active"
+                                aria-current="page" href="index.html">Inicio</a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#events">Cursos</a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#services">Terapias </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#services">Talleres </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#services">Libros </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#services">Contacto </a></li>
+                        {{-- <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#testimonial">Testimonial </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
+                                href="#country">Country </a></li> --}}
+                    </ul>
+                    <form class="ps-lg-5">
+                        <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
+                            <li class="nav-item px-2"> <a href="">ES</a> </li>
+                            <li class="nav-item px-2"> <a href="">EN</a> </li>
+                            <li class="nav-item px-2"> <a href="">FR</a> </li>
+                        </ul>
+                    </form>
                 </div>
-            @endif
+            </div>
+        </nav>
+        <section class="py-0" id="home">
+            <div class="bg-holder d-none d-md-block"
+                style="background-image:url(/img/gallery/hero.png);background-position:right bottom;background-size:contain;margin-top:5.625rem;">
+            </div>
+            <!--/.bg-holder-->
 
-            <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
-                <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
-                    <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
-                        <g clip-path="url(#clip0)" fill="#EF3B2D">
-                            <path d="M248.032 44.676h-16.466v100.23h47.394v-14.748h-30.928V44.676zM337.091 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.431 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162-.001 2.863-.479 5.584-1.432 8.161zM463.954 87.202c-2.101-3.341-5.083-5.965-8.949-7.875-3.865-1.909-7.756-2.864-11.669-2.864-5.062 0-9.69.931-13.89 2.792-4.201 1.861-7.804 4.417-10.811 7.661-3.007 3.246-5.347 6.993-7.016 11.239-1.672 4.249-2.506 8.713-2.506 13.389 0 4.774.834 9.26 2.506 13.459 1.669 4.202 4.009 7.925 7.016 11.169 3.007 3.246 6.609 5.799 10.811 7.66 4.199 1.861 8.828 2.792 13.89 2.792 3.913 0 7.804-.955 11.669-2.863 3.866-1.908 6.849-4.533 8.949-7.875v9.021h15.607V78.182h-15.607v9.02zm-1.432 32.503c-.955 2.578-2.291 4.821-4.009 6.73-1.719 1.91-3.795 3.437-6.229 4.582-2.435 1.146-5.133 1.718-8.091 1.718-2.96 0-5.633-.572-8.019-1.718-2.387-1.146-4.438-2.672-6.156-4.582-1.719-1.909-3.032-4.152-3.938-6.73-.909-2.577-1.36-5.298-1.36-8.161 0-2.864.451-5.585 1.36-8.162.905-2.577 2.219-4.819 3.938-6.729 1.718-1.908 3.77-3.437 6.156-4.582 2.386-1.146 5.059-1.718 8.019-1.718 2.958 0 5.656.572 8.091 1.718 2.434 1.146 4.51 2.674 6.229 4.582 1.718 1.91 3.054 4.152 4.009 6.729.953 2.577 1.432 5.298 1.432 8.162 0 2.863-.479 5.584-1.432 8.161zM650.772 44.676h-15.606v100.23h15.606V44.676zM365.013 144.906h15.607V93.538h26.776V78.182h-42.383v66.724zM542.133 78.182l-19.616 51.096-19.616-51.096h-15.808l25.617 66.724h19.614l25.617-66.724h-15.808zM591.98 76.466c-19.112 0-34.239 15.706-34.239 35.079 0 21.416 14.641 35.079 36.239 35.079 12.088 0 19.806-4.622 29.234-14.688l-10.544-8.158c-.006.008-7.958 10.449-19.832 10.449-13.802 0-19.612-11.127-19.612-16.884h51.777c2.72-22.043-11.772-40.877-33.023-40.877zm-18.713 29.28c.12-1.284 1.917-16.884 18.589-16.884 16.671 0 18.697 15.598 18.813 16.884h-37.402zM184.068 43.892c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002-35.648-20.524a2.971 2.971 0 00-2.964 0l-35.647 20.522-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v38.979l-29.706 17.103V24.493a3 3 0 00-.103-.776c-.024-.088-.073-.165-.104-.25-.058-.157-.108-.316-.191-.46-.056-.097-.137-.176-.203-.265-.087-.117-.161-.242-.265-.345-.085-.086-.194-.148-.29-.223-.109-.085-.206-.182-.327-.252l-.002-.001-.002-.002L40.098 1.396a2.971 2.971 0 00-2.964 0L1.487 21.919l-.002.002-.002.001c-.121.07-.219.167-.327.252-.096.075-.205.138-.29.223-.103.103-.178.228-.265.345-.066.089-.147.169-.203.265-.083.144-.133.304-.191.46-.031.085-.08.162-.104.25-.067.249-.103.51-.103.776v122.09c0 1.063.568 2.044 1.489 2.575l71.293 41.045c.156.089.324.143.49.202.078.028.15.074.23.095a2.98 2.98 0 001.524 0c.069-.018.132-.059.2-.083.176-.061.354-.119.519-.214l71.293-41.045a2.971 2.971 0 001.489-2.575v-38.979l34.158-19.666a2.971 2.971 0 001.489-2.575V44.666a3.075 3.075 0 00-.106-.774zM74.255 143.167l-29.648-16.779 31.136-17.926.001-.001 34.164-19.669 29.674 17.084-21.772 12.428-43.555 24.863zm68.329-76.259v33.841l-12.475-7.182-17.231-9.92V49.806l12.475 7.182 17.231 9.92zm2.97-39.335l29.693 17.095-29.693 17.095-29.693-17.095 29.693-17.095zM54.06 114.089l-12.475 7.182V46.733l17.231-9.92 12.475-7.182v74.537l-17.231 9.921zM38.614 7.398l29.693 17.095-29.693 17.095L8.921 24.493 38.614 7.398zM5.938 29.632l12.475 7.182 17.231 9.92v79.676l.001.005-.001.006c0 .114.032.221.045.333.017.146.021.294.059.434l.002.007c.032.117.094.222.14.334.051.124.088.255.156.371a.036.036 0 00.004.009c.061.105.149.191.222.288.081.105.149.22.244.314l.008.01c.084.083.19.142.284.215.106.083.202.178.32.247l.013.005.011.008 34.139 19.321v34.175L5.939 144.867V29.632h-.001zm136.646 115.235l-65.352 37.625V148.31l48.399-27.628 16.953-9.677v33.862zm35.646-61.22l-29.706 17.102V66.908l17.231-9.92 12.475-7.182v33.841z"/>
-                        </g>
-                    </svg>
-                </div>
+            <div class="bg-holder d-block d-md-none"
+                style="background-image:url(/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;margin-top:5.625rem;">
+            </div>
+            <!--/.bg-holder-->
 
-                <div class="mt-8 bg-white dark:bg-gray-800 overflow-hidden shadow sm:rounded-lg">
-                    <div class="grid grid-cols-1 md:grid-cols-2">
-                        <div class="p-6">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel.com/docs" class="underline text-gray-900 dark:text-white">Documentation</a></div>
-                            </div>
+            <div class="container">
+                <div class="row align-items-center min-vh-md-75 mt-7">
+                    <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center">
+                        <h1 class="mt-6 mb-sm-4 display-4 fw-light lh-sm fs-4 fs-lg-6 fs-xxl-7">ESCUELA DE MEDICINA
+                            <span class="text-primary">HOLÍSTICA DEL AURA</span><br>
 
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel has wonderful, thorough documentation covering every aspect of the framework. Whether you are new to the framework or have previous experience with Laravel, we recommend reading all of the documentation from beginning to end.
-                                </div>
-                            </div>
+                        </h1>
+                        <p class="d-block d-lg-none d-xl-block text-sm-start" />BIOL. TPTA. JULIETA HUERTA
+                        HERNÁNDEZ </p>
+                        <p class="mb-5 fs-1 lh-lg">
+                            Somos una escuela que se destaca por los metodos de enseñansa no cotidianos para alcanzar
+                            conocimientos de alto nivel
+                        </p><a class="btn btn-lg btn-primary hover-top btn-glow" href="#">CONTACTO
+                            <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25"
+                                height="25" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                </path>
+                            </svg></a>
+                        <div class="mt-5 mt-xl-6">
+                            <ul class="list-unstyled list-inline mb-0">
+                                <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!">
+                                        <svg class="bi bi-facebook text-facebook" xmlns="http://www.w3.org/2000/svg"
+                                            width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                                            </path>
+                                        </svg></a></li>
+                                <li class="list-inline-item me-3"><a href="#!">
+                                        <svg class="bi bi-twitter text-twitter" xmlns="http://www.w3.org/2000/svg"
+                                            width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                                            </path>
+                                        </svg></a></li>
+                                <li class="list-inline-item me-3"><a href="#!">
+                                        <svg class="bi bi-instagram text-instagram text-youtube"
+                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
+                                            fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                                            </path>
+                                        </svg></a></li>
+                            </ul>
                         </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-t-0 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laracasts.com" class="underline text-gray-900 dark:text-white">Laracasts</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laracasts offers thousands of video tutorials on Laravel, PHP, and JavaScript development. Check them out, see for yourself, and massively level up your development skills in the process.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold"><a href="https://laravel-news.com/" class="underline text-gray-900 dark:text-white">Laravel News</a></div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel News is a community driven portal and newsletter aggregating all of the latest and most important news in the Laravel ecosystem, including new package releases and tutorials.
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="p-6 border-t border-gray-200 dark:border-gray-700 md:border-l">
-                            <div class="flex items-center">
-                                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-8 h-8 text-gray-500"><path d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                                <div class="ml-4 text-lg leading-7 font-semibold text-gray-900 dark:text-white">Vibrant Ecosystem</div>
-                            </div>
-
-                            <div class="ml-12">
-                                <div class="mt-2 text-gray-600 dark:text-gray-400 text-sm">
-                                    Laravel's robust library of first-party tools and libraries, such as <a href="https://forge.laravel.com" class="underline">Forge</a>, <a href="https://vapor.laravel.com" class="underline">Vapor</a>, <a href="https://nova.laravel.com" class="underline">Nova</a>, and <a href="https://envoyer.io" class="underline">Envoyer</a> help you take your projects to the next level. Pair them with powerful open source libraries like <a href="https://laravel.com/docs/billing" class="underline">Cashier</a>, <a href="https://laravel.com/docs/dusk" class="underline">Dusk</a>, <a href="https://laravel.com/docs/broadcasting" class="underline">Echo</a>, <a href="https://laravel.com/docs/horizon" class="underline">Horizon</a>, <a href="https://laravel.com/docs/sanctum" class="underline">Sanctum</a>, <a href="https://laravel.com/docs/telescope" class="underline">Telescope</a>, and more.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
-                    <div class="text-center text-sm text-gray-500 sm:text-left">
-                        <div class="flex items-center">
-                            <svg fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor" class="-mt-px w-5 h-5 text-gray-400">
-                                <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
-                            </svg>
-
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
-                                Shop
-                            </a>
-
-                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="ml-4 -mt-px w-5 h-5 text-gray-400">
-                                <path d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
-                            </svg>
-
-                            <a href="https://github.com/sponsors/taylorotwell" class="ml-1 underline">
-                                Sponsor
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="ml-4 text-center text-sm text-gray-500 sm:text-right sm:ml-0">
-                        Laravel v{{ Illuminate\Foundation\Application::VERSION }} (PHP v{{ PHP_VERSION }})
                     </div>
                 </div>
             </div>
-        </div>
-    </body>
+        </section>
+
+
+        <!-- ============================================-->
+        <section class="bg-100 py-5">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 text-center">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3">Cursos</h5>
+                        <p class="mb-3">
+                            Enterate de nuestros proximos cursos y contenido mas relevante de nuestra academia holística
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- <section> begin ============================-->
+        <section class="bg-100 py-5">
+
+            <div class="col-12">
+                <div class="carousel-wrap" id="carousel">
+                    <div class="owl-carousel owl-theme">
+                        <div><img src="{{ asset('img/banners') . '/1.jpg' }}"></div>
+                        <div><img src="{{ asset('img/banners') . '/2.jpg' }}"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section id="services">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mx-auto mb-4">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center">CURSOS DE MEDICINA AURICA:</h5>
+                        <p class="mb-5">
+                            Medicina áurica es un conocimiento que engloba anatomía, fisiología, histología, patología,
+                            parasitología, medicamentos, aparatos, instrumentos y técnicas de sanación en el aura. Es un
+                            nuevo conocimiento que viene a poner las bases de la medicina alternativa para fomentar una
+                            evolución en ella y poder trabajar de la mano con la medicina alopática.
+                            <br><br>
+                            A lo largo de los cursos aprenderás sobre 20 campos ?uricos, la interfase, conexiones, 20
+                            chakras y esferas mentales sobre el aura. Además de medicina germánica, biodescodificación,
+                            transgeneracional, registros akashicos, ecología energética, cosmología, exopolítica,
+                            merkabas, numerología biolígica, geometría sagrada y más. Por lo completo y práctico del
+                            plan de estudios, desde el primer módulo se practican terapias.
+                            <br><br>
+                            La Escuela de Medicina Holística del Aura surgió como una necesidad de transformar a los
+                            terapeutas holísticos en médicos del aura. Al ser médico sabes cómo está estructurado el
+                            aura, como funciona, y cómo y porque perdemos la salud; además de cómo usar el conocimiento
+                            de las ramas de la medicina alternativa en conjunto para trabajar en pro de la sanación de
+                            una persona.
+                            <br><br>
+                            Se puede impartir cursos de medicina áurica presenciales en tu localidad. Mayores informes
+                            ver contacto.
+                            <br><br>
+                            La que imparte los cursos es la bióloga y terapeuta Julieta Huerta Hernández que es maestra
+                            de biología cuántica y medicina áurica. Autora de los libros: "Anatomía y fisiología del
+                            aura" y "Mi energía? Mi salud". Imparte cursos alrededor del mundo, llevado este
+                            revolucionario conocimiento para la transformación de la humanidad y la elevación de
+                            conciencia del planeta.
+                        </p>
+                    </div>
+                </div>
+
+            </div><!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="bg-100">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mx-auto  my-5">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-4 text-center">TERAPIAS</h5>
+                        <p class="mb-3">
+                            A) Individuales: Se usan varias áreas de la medicina alternativa como biodescodificación,
+                            theta healing, terapia floral, medicina germánica, par biomagnético, transgeneracional,
+                            registros akashicos, y más; siempre con las bases de la medicina del aura. Es por cita y
+                            contactarse por Whatsapp al 52 3311359027. <br><br>
+                            B) Grupales on line: En cada sesión se trabaja un tema distinto de la vida, desde la salud
+                            física hasta lo mental, emocional y espiritual; como por ejemplo: sistema digestivo,
+                            circulatorio, sanando a mamá y papá, ancestros, vidas pasadas, creencias limitantes y que
+                            bloquean tu vida, etc. Se inicia con clase y se termina con la terapia grupal. Son una vez
+                            cada semana y dura hora y media. Hay horario en la mañana y en la tarde.
+                        </p>
+                    </div>
+                </div>
+                <div class="row flex-center h-100">
+                    <div class="col-xl-9">
+                        <div class="row justify-content-center">
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 shadow card-span"><img class="card-img-top"
+                                        src="/img/gallery/news-1.png" alt="news" />
+                                    <div class="card-body">
+                                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12"
+                                            height="12" fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
+                                            </path>
+                                            <path
+                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
+                                            </path>
+                                        </svg><span class="fs--1">17 Diciembre 2021</span>
+                                        <h5 class="fs-lg-1 my-3">Terapia lectura del aura</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 shadow card-span"><img class="card-img-top"
+                                        src="/img/gallery/news-2.png" alt="news" />
+                                    <div class="card-body">
+                                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12"
+                                            height="12" fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
+                                            </path>
+                                            <path
+                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
+                                            </path>
+                                        </svg>
+                                        <span class="fs--1">18 Diciembre 2021</span>
+                                        <h5 class="fs-lg-1 my-3">Terapia lectura del aura
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-4">
+                                <div class="card h-100 shadow card-span"><img class="card-img-top"
+                                        src="/img/gallery/news-3.png" alt="news" />
+                                    <div class="card-body">
+                                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12"
+                                            height="12" fill="currentColor" viewBox="0 0 16 16">
+                                            <path
+                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
+                                            </path>
+                                            <path
+                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
+                                            </path>
+                                        </svg>
+                                        <span class="fs--1">18 Diciembre 2021</span>
+                                        <h5 class="fs-lg-1 my-3">Terapia lectura del aura
+                                        </h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div><!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section id="events">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mx-auto  mb-4">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center">TALLERES</h5>
+                        <p class="mb-3">
+                            a) Mi energía… Mi salud: Se enseña sobre la energía, aura y chakras, como sentirla y
+                            percibirla, sobre bloqueos energéticos y como sanarlos. También se enseña a dar energía de
+                            diferentes frecuencias para sanar una zona del cuerpo. Es teórico, práctico y terapias.<br>
+                            b) Yo en mi mismo, en la familia y en la sociedad: Se ve la personalidad, los mecanismos de
+                            defensa que adoptamos para enfrentar la vida, como vivir desde el observador para sanar y
+                            armonizar nuestra vida, el impacto de la familia y la sociedad en la programación de nuestra
+                            vida, la dualidad, el holograma de la realidad, transgeneracional y más. Teoría, prácticas y
+                            terapia.<br><br>
+                            c) Meditación: Se enseña los diferentes tipos de meditación que hay y cuando se usa cada
+                            una. Además se darán herramientas para mejorar tu práctica de meditación. Se practicarán
+                            cada uno de los tipos de meditación. Taller teórico y práctico.<br>
+                            d) Relaciones interpersonales/conexiones energéticas: ¿cómo mejorarlas y sanarlas?: A través
+                            de este taller conocerás los aspectos tóxicos de la personalidad y como daña a uno mismo y a
+                            los demás. Conocerás como manejar las situaciones en las relaciones no sanas. Se te dará
+                            herramientas para armonizar aspectos desequilibrados de tu ser. Hay teoría, prácticas y
+                            terapia.<br><br>
+                            e) Los cuentos que me cuento: Aprenderás el mecanismo de la mente para crear la realidad y
+                            guardar los sucesos de la vida. Aprenderás sobre el ego y cómo manejarlo. Veras que
+                            programas tienes en tu inconsciente que te limitan o te bloquean tus proyectos en tu vida.
+                            Trabajaras con tu sombra para sacarla, liberarla y sanarla. Es teórico, práctico y hay
+                            terapia.<br><br>
+                            f) Yo Hombre, Yo Mujer: A través de este taller aprenderás como son las mujeres y los
+                            hombres desde el punto de vista emocional, mental y del alma; así como mejorar la relación
+                            con uno mismo y con tu pareja. Se te darán las herramientas para mejorar tu relación de
+                            pareja; atrévete a volver al amor y al romance. Es un taller teórico, práctico y con
+                            terapia.
+                        </p>
+                    </div>
+                </div>
+                <div class="row flex-center h-100">
+                    <div class="col-xl-9">
+                        <div class="carousel slide" id="carouselEvents" data-bs-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active" data-bs-interval="10000">
+                                    <div class="row h-100 justify-content-center">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100 shadow px-2 px-lg-3 card-span pt-4">
+                                                <div class="text-center text-md-start card-hover">
+                                                    <div class="card-body">
+                                                        <div class="d-flex align-items-center"><span
+                                                                class="badge bg-soft-primary text-primary fs--1 fw-light p-3 rounded-1"><span
+                                                                    class="fw-medium fs-1 mb-2">23</span><br>DIC</span>
+                                                            <h6 class="fw-light fs-1 fs-lg-2 text-start ms-3">Charla en
+                                                                el auditorio </h6>
+                                                        </div>
+                                                        <p class="mt-4 mb-md-0 mb-lg-3 fw-light lh-base text-start">
+                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                                            Iste natus rem dolores soluta culpa consequatur.
+                                                        </p>
+                                                        <div class="d-flex flex-between-center">
+                                                            <div class="d-flex align-items-center"><a
+                                                                    class="btn btn-lg ps-0 text-primary fw-light fs--1"
+                                                                    href="#" role="button">Leer mas
+                                                                    <svg class="bi bi-arrow-right-short"
+                                                                        xmlns="http://www.w3.org/2000/svg" width="25"
+                                                                        height="25" fill="currentColor"
+                                                                        viewBox="0 0 16 16">
+                                                                        <path fill-rule="evenodd"
+                                                                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                                                        </path>
+                                                                    </svg></a></div>
+                                                            <div class="d-flex align-items-center">
+                                                                <svg class="bi bi-alarm me-2"
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
+                                                                    height="16" fill="currentColor" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z">
+                                                                    </path>
+                                                                    <path
+                                                                        d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z">
+                                                                    </path>
+                                                                </svg>
+                                                                <p class="mb-0 fw-light text-dark fs--1">10:00 AM -
+                                                                    2:00 PM</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 mb-4">
+                                            <div class="card h-100 shadow px-2 px-lg-3 card-span pt-4">
+                                                <div class="text-center text-md-start card-hover">
+                                                    <div class="card-body">
+                                                        <div class="d-flex align-items-center"><span
+                                                                class="badge bg-soft-primary text-primary fs--1 fw-light p-3 rounded-1"><span
+                                                                    class="fw-medium fs-1 mb-2">30</span><br>Oct</span>
+                                                            <h6 class="fw-light fs-1 fs-lg-2 text-start ms-3">
+                                                                Charla en la universidad tasco</h6>
+                                                        </div>
+                                                        <p class="mt-4 mb-md-0 mb-lg-3 fw-light lh-base text-start">
+                                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                                                            Aut eveniet ipsum, suscipit voluptas eius voluptatem. </p>
+                                                        <div class="d-flex flex-between-center">
+                                                            <div class="d-flex align-items-center"><a
+                                                                    class="btn btn-lg ps-0 text-primary fw-light fs--1"
+                                                                    href="#" role="button">Leer mas
+                                                                    <svg class="bi bi-arrow-right-short"
+                                                                        xmlns="http://www.w3.org/2000/svg" width="25"
+                                                                        height="25" fill="currentColor"
+                                                                        viewBox="0 0 16 16">
+                                                                        <path fill-rule="evenodd"
+                                                                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                                                                        </path>
+                                                                    </svg></a></div>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                            <div class="row mt-3 flex-center">
+                                <div class="col-auto position-relative z-index-2">
+                                    <ol class="carousel-indicators">
+                                        <li class="active mx-2" data-bs-target="#carouselEvents"
+                                            data-bs-slide-to="0"></li>
+                                        <li class="mx-2" data-bs-target="#carouselEvents"
+                                            data-bs-slide-to="1"></li>
+
+                                    </ol>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div><!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="bg-100" id="country">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mx-auto my-5">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center">LIBROS</h5>
+                        <p class="mb-3">
+                            a) Anatomía y fisiología del aura: campos, chakras, interfase, esferas mentales y
+                            conexiones:
+                            A través de las páginas de este libro descubrirás que el aura y los chakras son más de lo
+                            que conoces, que están constituidos por células que forman tejidos, órganos y sistemas cuyas
+                            partículas subatómicas vibran en una frecuencia mayor a las del cuerpo físico, razón por la
+                            cual no los podemos ver ni tocas. Para que el SER pueda tener una experiencia humana se
+                            requieren 20 campos áuricos, cuyos procesos están coordinados por las esferas mentales que
+                            son parte del cerebro del Alma. <br><br>
+                            b) Mi energía,,, mi salud. La respuesta para la sanación de las enfermedades:
+                            A lo largo de este libro encontrarás información sobre como es el aura, como funciona y como
+                            generamos las enfermedades y eventos positivos como negativos en nuestra vida. Aprenderás
+                            como es el lenguaje de tu cuerpo, lo que te quiere decir. También se da consejos,
+                            meditaciones y ejercicios para sanar y mejorar tu vida. Hablaré sobre la medicina alopática,
+                            alternativa y la nueva medicina del aura que es la base de la medicina alternativa u
+                            holística y como combinarlas para una recuperación de la salud.
+                        </p>
+                    </div>
+                </div>
+
+            </div><!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+        <!-- ============================================-->
+        <!-- <section> begin ============================-->
+        <section class="py-0 bg-primary">
+
+            <div class="container">
+                <div class="row justify-content-between pb-2 pt-8">
+
+                    <div class="col-auto text-center text-md-left mb-3">
+                        <ul class="list-inline mb-md-4 mb-lg-0">
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
+                                    href="#!">Inicio</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
+                                    href="#!"> Cursos</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
+                                    href="#!"> Terapias</a></li>
+
+
+                        </ul>
+                        <ul class="list-inline mb-md-4 mb-lg-0">
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
+                                    href="#!"> Taller</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
+                                    href="#!"> Libros</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
+                                    href="#!">Contacto</a></li>
+
+                        </ul>
+                    </div>
+                    <div class="col-auto mb-3 text-center text-md-left text-white">
+                        <p>Telefono: 99999999999</p>
+                        <p>Direccion: Calle 44</p>
+                    </div>
+                    <div class="col-auto text-center text-md-left mb-4 d-flex align-items-end">
+                        <ul class="list-unstyled list-inline mb-0">
+                            <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!">
+                                    <svg class="bi bi-facebook" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" fill="#ffffff" viewBox="0 0 16 16">
+                                        <path
+                                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
+                                        </path>
+                                    </svg></a></li>
+                            <li class="list-inline-item me-3"><a href="#!">
+                                    <svg class="bi bi-twitter" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" fill="#ffffff" viewBox="0 0 16 16">
+                                        <path
+                                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
+                                        </path>
+                                    </svg></a></li>
+                            <li class="list-inline-item me-3"><a href="#!">
+                                    <svg class="bi bi-instagram" xmlns="http://www.w3.org/2000/svg" width="20"
+                                        height="20" fill="#ffffff" viewBox="0 0 16 16">
+                                        <path
+                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
+                                        </path>
+                                    </svg></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12 text-center mb-2">
+                        <p class="mb-0 fs--1 my-2 text-100">
+                            Todos los derechos a Escuela de medicina holística del aura
+                        </p>
+                    </div>
+                </div>
+            </div><!-- end of .container-->
+
+        </section>
+        <!-- <section> close ============================-->
+        <!-- ============================================-->
+
+
+    </main>
+    <!-- ===============================================-->
+    <!--    End of Main Content-->
+    <!-- ===============================================-->
+
+
+
+
+    <!-- ===============================================-->
+    <!--    JavaScripts-->
+    <!-- ===============================================-->
+    <script src="vendorjs/@popperjs/popper.min.js"></script>
+    <script src="vendorjs/bootstrap/bootstrap.min.js"></script>
+    <script src="vendorjs/is/is.min.js"></script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
+    <script src="/js/theme.js"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+    <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
+    <script src="/js/app.js"></script>
+</body>
+
 </html>

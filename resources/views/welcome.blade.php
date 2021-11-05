@@ -28,12 +28,11 @@
     <!-- ===============================================-->
     <!--    Stylesheets-->
     <!-- ===============================================-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
-        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
     <link href="/css/theme.css" rel="stylesheet" />
     <link href="/css/owl.carousel.min.css" rel="stylesheet" />
     <link href="/css/owl.theme.default.min.css" rel="stylesheet" />
-    <link href="/css/app.css" rel="stylesheet" />
+    <link href="/css/landing.css" rel="stylesheet" />
 
 </head>
 
@@ -72,38 +71,34 @@
                     </ul>
                     <form class="ps-lg-5">
                         <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
-                            <li class="nav-item px-2"> <a href="">ES</a> </li>
-                            <li class="nav-item px-2"> <a href="">EN</a> </li>
-                            <li class="nav-item px-2"> <a href="">FR</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['es']) }}">ES</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['en']) }}">EN</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['fr']) }}">FR</a> </li>
                         </ul>
                     </form>
                 </div>
             </div>
         </nav>
         <section class="py-0" id="home">
+            <?php $image = get_images(1); ?>
             <div class="bg-holder d-none d-md-block"
-                style="background-image:url(/img/gallery/hero.png);background-position:right bottom;background-size:contain;margin-top:5.625rem;">
+                style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right bottom;background-size:contain;margin-top:5.625rem;">
             </div>
             <!--/.bg-holder-->
 
             <div class="bg-holder d-block d-md-none"
-                style="background-image:url(/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;margin-top:5.625rem;">
+                style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right top;background-size:contain;margin-top:5.625rem;">
             </div>
             <!--/.bg-holder-->
 
             <div class="container">
                 <div class="row align-items-center min-vh-md-75 mt-7">
                     <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center">
-                        <h1 class="mt-6 mb-sm-4 display-4 fw-light lh-sm fs-4 fs-lg-6 fs-xxl-7">ESCUELA DE MEDICINA
-                            <span class="text-primary">HOLÍSTICA DEL AURA</span><br>
-
-                        </h1>
-                        <p class="d-block d-lg-none d-xl-block text-sm-start" />BIOL. TPTA. JULIETA HUERTA
-                        HERNÁNDEZ </p>
+                        {!! get_section(1, 'title')->description !!}
                         <p class="mb-5 fs-1 lh-lg">
-                            Somos una escuela que se destaca por los metodos de enseñansa no cotidianos para alcanzar
-                            conocimientos de alto nivel
-                        </p><a class="btn btn-lg btn-primary hover-top btn-glow" href="#">CONTACTO
+                            {!! get_section(1, 'description')->description !!}
+                        </p>
+                        <a class="btn btn-lg btn-primary hover-top btn-glow" href="#">CONTACTO
                             <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25"
                                 height="25" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -497,9 +492,79 @@
         <!-- <section> close ============================-->
         <!-- ============================================-->
 
+        <!-- <section> begin ============================-->
+        <section class="bg-100 bg-white" id="contact">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center">CONTACTO</h5>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col-12 col-md-6">
+                        <p>
+                            Escribenos tus dudas u comentarios y en breve nos comunicaremos con tigo
+                        </p>
+                        <table>
+                            <tr>
+                                <td><i class="fas fa-envelope"></i> &nbsp; </td>
+                                <td>julietahuertahernández@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td><i class="fas fa-phone-alt"></i> &nbsp;</td>
+                                <td>+52 3311359027</td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-12 col-md-6">
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">País</label>
+                            <select name="" id="" class="form-control">
+                                @foreach (config('enums.pais') as $pais)
+                                    <option value="{{ $pais }}"> {{ $pais }} </option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Ciudad</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput">
+                        </div>
+
+
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Teléfono celular</label>
+
+                            <input type="text" class="form-control" id="formGroupExampleInput">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Correo electrónico</label>
+                            <input type="text" class="form-control" id="formGroupExampleInput">
+                        </div>
+                        <div class="mb-3">
+                            <label for="formGroupExampleInput" class="form-label">Comentario</label>
+                            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div><!-- end of .container-->
+
+        </section>
+
 
         <!-- ============================================-->
-        <!-- <section> begin ============================-->
+        <!-- footer ============================-->
         <section class="py-0 bg-primary">
 
             <div class="container">
@@ -591,7 +656,7 @@
         rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    <script src="/js/app.js"></script>
+    <script src="/js/landing.js"></script>
 </body>
 
 </html>

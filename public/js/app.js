@@ -15,7 +15,7 @@
   \*****************************/
 /***/ (() => {
 
-eval("/* require('./bootstrap'); */\nif (document.getElementById('carousel')) {\n  $(function () {\n    $(\".owl-carousel\").owlCarousel({\n      items: 1,\n      autoplay: true,\n      loop: true,\n      nav: true\n    });\n    $(\".owl-prev\").html('<i class=\"fa fa-chevron-left\"></i>');\n    $(\".owl-next\").html('<i class=\"fa fa-chevron-right\"></i>');\n  });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzPzZkNDAiXSwibmFtZXMiOlsiZG9jdW1lbnQiLCJnZXRFbGVtZW50QnlJZCIsIiQiLCJvd2xDYXJvdXNlbCIsIml0ZW1zIiwiYXV0b3BsYXkiLCJsb29wIiwibmF2IiwiaHRtbCJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxJQUFHQSxRQUFRLENBQUNDLGNBQVQsQ0FBd0IsVUFBeEIsQ0FBSCxFQUF1QztBQUNuQ0MsRUFBQUEsQ0FBQyxDQUFDLFlBQVk7QUFDVkEsSUFBQUEsQ0FBQyxDQUFDLGVBQUQsQ0FBRCxDQUFtQkMsV0FBbkIsQ0FBK0I7QUFDM0JDLE1BQUFBLEtBQUssRUFBRSxDQURvQjtBQUUzQkMsTUFBQUEsUUFBUSxFQUFFLElBRmlCO0FBRzNCQyxNQUFBQSxJQUFJLEVBQUUsSUFIcUI7QUFJM0JDLE1BQUFBLEdBQUcsRUFBRTtBQUpzQixLQUEvQjtBQVFBTCxJQUFBQSxDQUFDLENBQUMsV0FBRCxDQUFELENBQWVNLElBQWYsQ0FBb0Isb0NBQXBCO0FBQ0FOLElBQUFBLENBQUMsQ0FBQyxXQUFELENBQUQsQ0FBZU0sSUFBZixDQUFvQixxQ0FBcEI7QUFDRixHQVhELENBQUQ7QUFZSCIsInNvdXJjZXNDb250ZW50IjpbIi8qIHJlcXVpcmUoJy4vYm9vdHN0cmFwJyk7ICovXG5pZihkb2N1bWVudC5nZXRFbGVtZW50QnlJZCgnY2Fyb3VzZWwnKSl7XG4gICAgJChmdW5jdGlvbiAoKSB7XG4gICAgICAgICQoXCIub3dsLWNhcm91c2VsXCIpLm93bENhcm91c2VsKHtcbiAgICAgICAgICAgIGl0ZW1zOiAxLFxuICAgICAgICAgICAgYXV0b3BsYXk6IHRydWUsXG4gICAgICAgICAgICBsb29wOiB0cnVlLFxuICAgICAgICAgICAgbmF2OiB0cnVlLFxuXG4gICAgICAgIH0pO1xuXG4gICAgICAgICQoXCIub3dsLXByZXZcIikuaHRtbCgnPGkgY2xhc3M9XCJmYSBmYS1jaGV2cm9uLWxlZnRcIj48L2k+Jyk7XG4gICAgICAgICQoXCIub3dsLW5leHRcIikuaHRtbCgnPGkgY2xhc3M9XCJmYSBmYS1jaGV2cm9uLXJpZ2h0XCI+PC9pPicpO1xuICAgICB9KVxufSJdLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
+eval("/* require('./bootstrap'); */\nif (document.getElementById(\"carousel\")) {\n  $(function () {\n    $(\".owl-carousel\").owlCarousel({\n      items: 1,\n      autoplay: true,\n      loop: true,\n      nav: true\n    });\n    $(\".owl-prev\").html('<i class=\"fa fa-chevron-left\"></i>');\n    $(\".owl-next\").html('<i class=\"fa fa-chevron-right\"></i>');\n  });\n}//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvanMvYXBwLmpzPzZkNDAiXSwibmFtZXMiOlsiZG9jdW1lbnQiLCJnZXRFbGVtZW50QnlJZCIsIiQiLCJvd2xDYXJvdXNlbCIsIml0ZW1zIiwiYXV0b3BsYXkiLCJsb29wIiwibmF2IiwiaHRtbCJdLCJtYXBwaW5ncyI6IkFBQUE7QUFDQSxJQUFJQSxRQUFRLENBQUNDLGNBQVQsQ0FBd0IsVUFBeEIsQ0FBSixFQUF5QztBQUNyQ0MsRUFBQUEsQ0FBQyxDQUFDLFlBQVk7QUFDVkEsSUFBQUEsQ0FBQyxDQUFDLGVBQUQsQ0FBRCxDQUFtQkMsV0FBbkIsQ0FBK0I7QUFDM0JDLE1BQUFBLEtBQUssRUFBRSxDQURvQjtBQUUzQkMsTUFBQUEsUUFBUSxFQUFFLElBRmlCO0FBRzNCQyxNQUFBQSxJQUFJLEVBQUUsSUFIcUI7QUFJM0JDLE1BQUFBLEdBQUcsRUFBRTtBQUpzQixLQUEvQjtBQU9BTCxJQUFBQSxDQUFDLENBQUMsV0FBRCxDQUFELENBQWVNLElBQWYsQ0FBb0Isb0NBQXBCO0FBQ0FOLElBQUFBLENBQUMsQ0FBQyxXQUFELENBQUQsQ0FBZU0sSUFBZixDQUFvQixxQ0FBcEI7QUFDSCxHQVZBLENBQUQ7QUFXSCIsInNvdXJjZXNDb250ZW50IjpbIi8qIHJlcXVpcmUoJy4vYm9vdHN0cmFwJyk7ICovXG5pZiAoZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJjYXJvdXNlbFwiKSkge1xuICAgICQoZnVuY3Rpb24gKCkge1xuICAgICAgICAkKFwiLm93bC1jYXJvdXNlbFwiKS5vd2xDYXJvdXNlbCh7XG4gICAgICAgICAgICBpdGVtczogMSxcbiAgICAgICAgICAgIGF1dG9wbGF5OiB0cnVlLFxuICAgICAgICAgICAgbG9vcDogdHJ1ZSxcbiAgICAgICAgICAgIG5hdjogdHJ1ZSxcbiAgICAgICAgfSk7XG5cbiAgICAgICAgJChcIi5vd2wtcHJldlwiKS5odG1sKCc8aSBjbGFzcz1cImZhIGZhLWNoZXZyb24tbGVmdFwiPjwvaT4nKTtcbiAgICAgICAgJChcIi5vd2wtbmV4dFwiKS5odG1sKCc8aSBjbGFzcz1cImZhIGZhLWNoZXZyb24tcmlnaHRcIj48L2k+Jyk7XG4gICAgfSk7XG59XG5cbiJdLCJmaWxlIjoiLi9yZXNvdXJjZXMvanMvYXBwLmpzLmpzIiwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/js/app.js\n");
 
 /***/ }),
 
@@ -27,6 +27,17 @@ eval("/* require('./bootstrap'); */\nif (document.getElementById('carousel')) {\
 
 "use strict";
 eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9hcHAuc2Nzcy5qcyIsIm1hcHBpbmdzIjoiO0FBQUEiLCJzb3VyY2VzIjpbIndlYnBhY2s6Ly8vLi9yZXNvdXJjZXMvc2Fzcy9hcHAuc2Nzcz80NzVmIl0sInNvdXJjZXNDb250ZW50IjpbIi8vIGV4dHJhY3RlZCBieSBtaW5pLWNzcy1leHRyYWN0LXBsdWdpblxuZXhwb3J0IHt9OyJdLCJuYW1lcyI6W10sInNvdXJjZVJvb3QiOiIifQ==\n//# sourceURL=webpack-internal:///./resources/sass/app.scss\n");
+
+/***/ }),
+
+/***/ "./resources/sass/landing.scss":
+/*!*************************************!*\
+  !*** ./resources/sass/landing.scss ***!
+  \*************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extract-plugin\n//# sourceURL=[module]\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiLi9yZXNvdXJjZXMvc2Fzcy9sYW5kaW5nLnNjc3MuanMiLCJtYXBwaW5ncyI6IjtBQUFBIiwic291cmNlcyI6WyJ3ZWJwYWNrOi8vLy4vcmVzb3VyY2VzL3Nhc3MvbGFuZGluZy5zY3NzP2RmZTkiXSwic291cmNlc0NvbnRlbnQiOlsiLy8gZXh0cmFjdGVkIGJ5IG1pbmktY3NzLWV4dHJhY3QtcGx1Z2luXG5leHBvcnQge307Il0sIm5hbWVzIjpbXSwic291cmNlUm9vdCI6IiJ9\n//# sourceURL=webpack-internal:///./resources/sass/landing.scss\n");
 
 /***/ })
 
@@ -117,7 +128,8 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/app": 0,
-/******/ 			"css/app": 0
+/******/ 			"css/app": 0,
+/******/ 			"css/landing": 0
 /******/ 		};
 /******/ 		
 /******/ 		// no chunk on demand loading
@@ -167,8 +179,9 @@ eval("__webpack_require__.r(__webpack_exports__);\n// extracted by mini-css-extr
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/js/app.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/landing"], () => (__webpack_require__("./resources/js/app.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/app","css/landing"], () => (__webpack_require__("./resources/sass/app.scss")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/app","css/landing"], () => (__webpack_require__("./resources/sass/landing.scss")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()

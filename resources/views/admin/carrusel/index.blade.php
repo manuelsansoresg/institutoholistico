@@ -24,7 +24,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-10 bg-white">
+            <div class="col-12  col-md-8 bg-white">
                 <div class="box py-3 px-3">
 
                     <!-- /.box-header -->
@@ -41,8 +41,6 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
-                                    <th>Imagen</th>
-                                    <th>Imagen2</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
                                     <th>Lenguaje</th>
@@ -53,22 +51,16 @@
                             @if ($es_sections !== null)
                                 @foreach ($es_sections as $es_section)
                                     <?php $image1 = get_images($es_section['section_id'], false, 0, $es_section['lang'] . '-1'); ?>
-                                    <?php $image2 = get_images($es_section['section_id'], false, 0, $es_section['lang'] . '-2'); ?>
+
                                     <tbody>
                                         <tr>
                                             <td>{{ $es_section['id'] }}</td>
-                                            <td>
+                                            {{-- <td>
                                                 @if ($image1 !== null)
                                                     <img class="preview"
                                                         src="{{ asset('img/carrusel/') . '/' . $image1->image }}" alt="">
                                                 @endif
-                                            </td>
-                                            <td>
-                                                @if ($image2 !== null)
-                                                    <img class="preview"
-                                                        src="{{ asset('img/carrusel/') . '/' . $image2->image }}" alt="">
-                                                @endif
-                                            </td>
+                                            </td> --}}
                                             <td>{!! $es_section['title'] !!}</td>
                                             <td> {!! Str::limit($es_section['description']['description'], 40) !!}
                                             </td>
@@ -89,6 +81,8 @@
                                                 {{ Form::open(['route' => ['carrusel.destroy', $es_section['id']], 'class' => 'form-inline', 'method' => 'DELETE']) }}
                                                 <a href="/#carrusel" target="_blank" class="btn btn-success btn-block"><i
                                                         class="far fa-eye"></i> </a>
+                                                <a href="/admin/carrusel/images/{{ $es_section['lang'] }}"
+                                                    class="btn btn-secondary btn-block"><i class="fas fa-images"></i></a>
 
                                                 <a href="{{ route('carrusel.edit', $es_section['lang']) }}"
                                                     class="btn btn-primary btn-block">

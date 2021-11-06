@@ -99,38 +99,7 @@
                                 </div>
 
                                 <div class="col-md-12"> </div>
-                                {{-- imagen2 --}}
-                                <?php $imagen2 = isset($images[$set_lang . '-2']) ? $images[$set_lang . '-2'] : null; ?>
-                                <div class="col-md-12">
-                                    <br> <br>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">
-                                            Imagen2 dimensiones recomendadas (1929 pixeles ancho * 700 pixeles alto)
-                                        </label>
 
-                                        @if ($imagen2 == null)
-                                            <input type="file" name="imagen2" class="form-control">
-                                            @if ($errors)
-                                                <span class="text-danger"> {{ $errors->first('imagen2') }}</span>
-                                            @endif
-                                        @endif
-                                    </div>
-                                </div>
-                                <div class="col-md-12"> </div>
-                                <div class="col-md-2">
-                                    @if ($imagen2 != null)
-                                        <img src="{{ asset('img/carrusel') . '/' . 'thumb_' . $imagen2->image }}" alt="">
-                                        <div class="pull-right">
-                                            <p>
-                                                <br>
-                                                <a href="/admin/carrusel/image/destroy/{{ $imagen2->id }}/{{ $set_lang }}"
-                                                    class="btn btn-danger ">Borrar</a>
-                                            </p>
-                                        </div>
-                                    @endif
-                                </div>
-
-                                <div class="col-md-12"> </div>
 
                             </div>
                             <div class="row">

@@ -41,6 +41,7 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
+                                    <th>Imagen1</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
                                     <th>Lenguaje</th>
@@ -50,10 +51,16 @@
 
                             @if ($es_sections !== null)
                                 @foreach ($es_sections as $es_section)
-
+                                    <?php $images = get_images(5, false, 0, $es_section['lang']); ?>
                                     <tbody>
                                         <tr>
                                             <td>{{ $es_section['id'] }}</td>
+                                            <td>
+                                                @if ($images !== null)
+                                                    <img class="preview"
+                                                        src="{{ asset('img/talleres/') . '/' . $images->image }}" alt="">
+                                                @endif
+                                            </td>
                                             <td>{!! $es_section['title'] !!}</td>
                                             <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
                                             <td>

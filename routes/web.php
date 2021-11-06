@@ -41,12 +41,20 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('/cabecera/image/destroy/{id}/{lang}', 'App\Http\Controllers\Admin\CabeceraController@destroyImage');
 
     Route::resource('/carrusel', 'App\Http\Controllers\Admin\CarruselController');
-    Route::get('/carrusel/image/destroy/{id}/{lang}', 'App\Http\Controllers\Admin\CarruselController@destroyImage');
+    Route::get('/carrusel/images/{setLang}', 'App\Http\Controllers\Admin\CarruselController@images');
+    Route::post('/carrusel/images/{setLang}', 'App\Http\Controllers\Admin\CarruselController@images');
+
+    Route::get('/carrusel/image/destroy/{id}/{setLang}', 'App\Http\Controllers\Admin\CarruselController@destroyImage');
 
     Route::resource('/cursos', 'App\Http\Controllers\Admin\CursosController');
+    Route::get('/cursos/image/destroy/{id}/{setLang}', 'App\Http\Controllers\Admin\CursosController@destroyImage');
 
     Route::resource('/terapias', 'App\Http\Controllers\Admin\TerapiasController');
+    Route::get('/terapias/image/destroy/{id}/{setLang}', 'App\Http\Controllers\Admin\TerapiasController@destroyImage');
 
     Route::resource('/talleres', 'App\Http\Controllers\Admin\TalleresController');
+    Route::get('/talleres/image/destroy/{id}/{setLang}', 'App\Http\Controllers\Admin\TalleresController@destroyImage');
+
     Route::resource('/libros', 'App\Http\Controllers\Admin\LibrosController');
+    Route::get('/libros/image/destroy/{id}/{setLang}', 'App\Http\Controllers\Admin\LibrosController@destroyImage');
 });

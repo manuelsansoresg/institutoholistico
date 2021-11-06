@@ -41,6 +41,13 @@ class CursosSeeder extends Seeder
         Se puede impartir cursos de medicina áurica presenciales en tu localidad. Mayores informes ver contacto. 
         ';
         $section_language->save();
+
+        $section_language = new SectionLanguage();
+        $section_language->section_id = 3;
+        $section_language->name = 'video';
+        $section_language->lang = 'es';
+        $section_language->description = '&nbsp;';
+        $section_language->save();
         /* ingles */
         $section_language = new SectionLanguage();
         $section_language->section_id = 3;
@@ -82,6 +89,14 @@ class CursosSeeder extends Seeder
         contact. 
         ';
         $section_language->save();
+
+        $section_language = new SectionLanguage();
+        $section_language->section_id = 3;
+        $section_language->name = 'video';
+        $section_language->lang = 'en';
+        $section_language->description = '&nbsp;';
+        $section_language->save();
+
         /* frances */
         $section_language = new SectionLanguage();
         $section_language->section_id = 3;
@@ -105,6 +120,12 @@ class CursosSeeder extends Seeder
         <br><br>
         Des cours de médecine aurique sur place peuvent être dispensés dans votre région. Pour plus de renseignements voir section contact. 
         ";
+        $section_language->save();
+        $section_language = new SectionLanguage();
+        $section_language->section_id = 3;
+        $section_language->name = 'video';
+        $section_language->lang = 'fr';
+        $section_language->description = '&nbsp;';
         $section_language->save();
     }
 }

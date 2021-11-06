@@ -36,7 +36,7 @@
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">
-                        {{ Form::open(['route' => ['terapias.update', $section_id], 'method' => 'PUT', 'files' => true]) }}
+                        {{ Form::open(['route' => ['libros.update', $section_id], 'method' => 'PUT', 'files' => true]) }}
 
                         <div class="container">
                             <div class="row">
@@ -72,8 +72,7 @@
                                 <div class="col-md-4">
                                     <br> <br>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Imagen Escritorio (645 pixeles ancho * 1080 pixeles
-                                            alto) </label>
+                                        <label for="exampleInputEmail1">Imagen</label>
                                         @if ($image == '')
                                             <input type="file" name="imagen" class="form-control">
                                             @if ($errors)
@@ -85,11 +84,11 @@
                                 <div class="col-md-12"> </div>
                                 <div class="col-md-2">
                                     @if ($image != '')
-                                        <img src="{{ asset('img/about') . '/' . 'thumb_' . $image->image }}" alt="">
+                                        <img src="{{ asset('img/libros') . '/' . 'thumb_' . $image->image }}" alt="">
                                         <div class="pull-right">
                                             <p>
                                                 <br>
-                                                <a href="/admin/about/image/destroy/{{ $image->id }}/{{ $set_lang }}"
+                                                <a href="/admin/libros/image/destroy/{{ $image->id }}/{{ $set_lang }}"
                                                     class="btn btn-danger ">Borrar</a>
                                             </p>
                                         </div>
@@ -97,37 +96,39 @@
                                 </div>
 
                                 <div class="col-md-12"> </div>
-                                {{-- movil --}}
+
                                 <div class="col-md-4">
+                                    <br> <br>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Imagen Móvil (320 pixeles ancho * 202 pixeles alto)
-                                        </label>
-                                        @if ($image_thumb == '')
-                                            <input type="file" name="imagen_movil" class="form-control">
+                                        <label for="exampleInputEmail1">Imagen2</label>
+                                        @if ($image2 == '')
+                                            <input type="file" name="imagen2" class="form-control">
                                             @if ($errors)
-                                                <span class="text-danger"> {{ $errors->first('imagen_movil') }}</span>
+                                                <span class="text-danger"> {{ $errors->first('imagen2') }}</span>
                                             @endif
                                         @endif
                                     </div>
                                 </div>
                                 <div class="col-md-12"> </div>
                                 <div class="col-md-2">
-                                    @if ($image_thumb != '')
-                                        <img src="{{ asset('img/about') . '/' . 'thumb_' . $image_thumb->image }}" alt="">
+                                    @if ($image2 != '')
+                                        <img src="{{ asset('img/libros') . '/' . 'thumb_' . $image2->image }}" alt="">
                                         <div class="pull-right">
                                             <p>
                                                 <br>
-                                                <a href="/admin/about/image/destroy/{{ $image_thumb->id }}/{{ $set_lang }}"
+                                                <a href="/admin/libros/image/destroy/{{ $image2->id }}/{{ $set_lang }}"
                                                     class="btn btn-danger ">Borrar</a>
                                             </p>
                                         </div>
                                     @endif
                                 </div>
-                                {{-- movil --}}
+
+                                <div class="col-md-12"> </div>
+
 
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-12 text-right">
                                     <div class="form-group">
                                         <button class="btn btn-primary">Guardar</button>
                                     </div>

@@ -24,7 +24,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8 bg-white">
+            <div class="col-12 col-md-10 bg-white">
                 <div class="box py-3 px-3">
 
                     <!-- /.box-header -->
@@ -42,6 +42,8 @@
                                 <tr>
                                     <th style="width: 10px">#</th>
                                     <th>Título</th>
+                                    <th>Imagen1</th>
+                                    <th>Imagen2</th>
                                     <th>Descripción</th>
                                     <th>Lenguaje</th>
                                     <th style="width:150px"></th>
@@ -50,10 +52,23 @@
 
                             @if ($es_sections !== null)
                                 @foreach ($es_sections as $es_section)
-
+                                    <?php $images = get_images(4, false, 0, '1-' . $es_section['lang']); ?>
+                                    <?php $images2 = get_images(4, false, 0, '2-' . $es_section['lang']); ?>
                                     <tbody>
                                         <tr>
                                             <td>{{ $es_section['id'] }}</td>
+                                            <td>
+                                                @if ($images !== null)
+                                                    <img class="preview"
+                                                        src="{{ asset('img/terapias/') . '/' . $images->image }}" alt="">
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($images2 !== null)
+                                                    <img class="preview"
+                                                        src="{{ asset('img/terapias/') . '/' . $images2->image }}" alt="">
+                                                @endif
+                                            </td>
                                             <td>{!! $es_section['title'] !!}</td>
                                             <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
                                             <td>

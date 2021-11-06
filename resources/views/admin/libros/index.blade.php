@@ -41,6 +41,8 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
+                                    <th>Imagen1</th>
+                                    <th>Imagen2</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
                                     <th>Lenguaje</th>
@@ -50,10 +52,23 @@
 
                             @if ($es_sections !== null)
                                 @foreach ($es_sections as $es_section)
-
+                                    <?php $images = get_images(6, false, 0, '1-' . $es_section['lang']); ?>
+                                    <?php $images2 = get_images(6, false, 0, '2-' . $es_section['lang']); ?>
                                     <tbody>
                                         <tr>
                                             <td>{{ $es_section['id'] }}</td>
+                                            <td>
+                                                @if ($images !== null)
+                                                    <img class="preview"
+                                                        src="{{ asset('img/libros/') . '/' . $images->image }}" alt="">
+                                                @endif
+                                            </td>
+                                            <td>
+                                                @if ($images2 !== null)
+                                                    <img class="preview"
+                                                        src="{{ asset('img/libros/') . '/' . $images2->image }}" alt="">
+                                                @endif
+                                            </td>
                                             <td>{!! $es_section['title'] !!}</td>
                                             <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
                                             <td>

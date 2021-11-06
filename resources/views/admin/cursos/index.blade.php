@@ -41,8 +41,10 @@
                             <thead>
                                 <tr>
                                     <th style="width: 10px">#</th>
+                                    <th>Imagen</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
+                                    <th>URL video</th>
                                     <th>Lenguaje</th>
                                     <th style="width:150px"></th>
                                 </tr>
@@ -50,12 +52,20 @@
 
                             @if ($es_sections !== null)
                                 @foreach ($es_sections as $es_section)
+                                    <?php $images = get_images(3, false, 0, $es_section['lang']); ?>
 
                                     <tbody>
                                         <tr>
                                             <td>{{ $es_section['id'] }}</td>
+                                            <td>
+                                                @if ($images !== null)
+                                                    <img class="preview"
+                                                        src="{{ asset('img/cursos/') . '/' . $images->image }}" alt="">
+                                                @endif
+                                            </td>
                                             <td>{!! $es_section['title'] !!}</td>
                                             <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
+                                            <td> {!! $es_section['video']->description !!} </td>
                                             <td>
                                                 @if ($es_section['lang'] == 'es')
                                                     <span class="badge bg-blue">{{ $es_section['lang'] }}</span>

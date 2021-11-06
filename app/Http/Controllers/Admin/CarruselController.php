@@ -75,6 +75,27 @@ class CarruselController extends Controller
         return view('admin.carrusel.edit', array('images' => $images, 'es_sections' => $es_sections, 'section_id' => $section_id, 'set_lang' => $set_lang));
     }
 
+    public function images($set_lang, Request  $request)
+    {
+        $images = ImagesSection::where('section_id', 2)
+            ->where('alias', $set_lang)
+            ->get();
+
+        if ($_POST) {
+            if ($request->hasFile('imagen') != false) {
+                $imagen = SectionLanguage::upload($request, 'imagen', $this->path_image);
+                $new_image = new ImagesSection();
+                $new_image->section_id = 2;
+                $new_image->alias = $set_lang;
+                $new_image->image = $imagen;
+                $new_image->save();
+            }
+            return redirect('/admin/carrusel/images/' . $set_lang);
+        }
+
+        return view('admin.carrusel.images', compact('images', 'set_lang'));
+    }
+
     public function getImages($lang)
     {
         $images = array();
@@ -107,7 +128,7 @@ class CarruselController extends Controller
     {
         ImagesSection::drop($this->path_image, $id);
         flash('Elemento borrado');
-        return redirect('admin/carrusel/' . $lang . '/edit');
+        return redirect('/admin/carrusel/images/' . $lang);
     }
 
     /**

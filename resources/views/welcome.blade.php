@@ -98,7 +98,7 @@
                         <p class="mb-5 fs-1 lh-lg">
                             {!! get_section(1, 'description')->description !!}
                         </p>
-                        <a class="btn btn-lg btn-primary hover-top btn-glow" href="#">CONTACTO
+                        <a class="btn btn-lg btn-primary hover-top btn-glow" href="#">CONTACTO2
                             <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25"
                                 height="25" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
@@ -142,9 +142,11 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3">Cursos</h5>
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 green">
+                            {!! get_section(2, 'title')->description !!}
+                        </h5>
                         <p class="mb-3">
-                            Enterate de nuestros proximos cursos y contenido mas relevante de nuestra academia holística
+                            {!! get_section(2, 'description')->description !!}
                         </p>
                     </div>
                 </div>
@@ -156,8 +158,11 @@
             <div class="col-12">
                 <div class="carousel-wrap" id="carousel">
                     <div class="owl-carousel owl-theme">
-                        <div><img src="{{ asset('img/banners') . '/1.jpg' }}"></div>
-                        <div><img src="{{ asset('img/banners') . '/2.jpg' }}"></div>
+                        <?php $lenguaje = isset($lenguaje) ? $lenguaje : 'es'; ?>
+                        <?php $images = get_images(2, false, 1, $lenguaje); ?>
+                        @foreach ($images as $image)
+                            <div><img src="{{ asset('img/carrusel') . '/' . $image->image }}"></div>
+                        @endforeach
                     </div>
 
                 </div>
@@ -176,39 +181,52 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12 mx-auto mb-4">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center">CURSOS DE MEDICINA AURICA:</h5>
-                        <p class="mb-5">
-                            Medicina áurica es un conocimiento que engloba anatomía, fisiología, histología, patología,
-                            parasitología, medicamentos, aparatos, instrumentos y técnicas de sanación en el aura. Es un
-                            nuevo conocimiento que viene a poner las bases de la medicina alternativa para fomentar una
-                            evolución en ella y poder trabajar de la mano con la medicina alopática.
-                            <br><br>
-                            A lo largo de los cursos aprenderás sobre 20 campos ?uricos, la interfase, conexiones, 20
-                            chakras y esferas mentales sobre el aura. Además de medicina germánica, biodescodificación,
-                            transgeneracional, registros akashicos, ecología energética, cosmología, exopolítica,
-                            merkabas, numerología biolígica, geometría sagrada y más. Por lo completo y práctico del
-                            plan de estudios, desde el primer módulo se practican terapias.
-                            <br><br>
-                            La Escuela de Medicina Holística del Aura surgió como una necesidad de transformar a los
-                            terapeutas holísticos en médicos del aura. Al ser médico sabes cómo está estructurado el
-                            aura, como funciona, y cómo y porque perdemos la salud; además de cómo usar el conocimiento
-                            de las ramas de la medicina alternativa en conjunto para trabajar en pro de la sanación de
-                            una persona.
-                            <br><br>
-                            Se puede impartir cursos de medicina áurica presenciales en tu localidad. Mayores informes
-                            ver contacto.
-                            <br><br>
-                            La que imparte los cursos es la bióloga y terapeuta Julieta Huerta Hernández que es maestra
-                            de biología cuántica y medicina áurica. Autora de los libros: "Anatomía y fisiología del
-                            aura" y "Mi energía? Mi salud". Imparte cursos alrededor del mundo, llevado este
-                            revolucionario conocimiento para la transformación de la humanidad y la elevación de
-                            conciencia del planeta.
+
+                    <div class="col-12 mx-auto">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center green">
+                            {!! get_section(3, 'title')->description !!}
+                        </h5>
+
+                    </div>
+
+                </div>
+                <div class="row mt-3 justify-content-center">
+                    <?php $image_cursos = get_images(3, false, 0, $lenguaje); ?>
+                    <?php $video = get_section(3, 'video')->description; ?>
+                    <?php $formatVideo = 'https://www.youtube.com/embed/' . get_youtube_id_from_url($video); ?>
+                    @if ($video !== '' && $video !== '&nbsp;')
+                        <div class="col-12 col-md-6 text-center">
+
+                            <iframe class="youtube" height="315" src="{{ $formatVideo }}"
+                                title="YouTube video player" frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen></iframe>
+
+                        </div>
+
+                    @endif
+
+
+
+                </div>
+                <div class="row mt-5 align-items-center">
+                    <div class="col-12 col-md-6">
+                        <p class="">
+                            {!! get_section(3, 'description')->description !!}
                         </p>
                     </div>
+                    @if ($image_cursos !== null)
+                        <div class="col-12 col-md-6">
+
+                            <img class="img-fluid" src="{{ asset('img/cursos') . '/' . $image_cursos->image }}">
+                        </div>
+
+                    @endif
+
+
                 </div>
 
-            </div><!-- end of .container-->
+            </div>
 
         </section>
         <!-- <section> close ============================-->
@@ -223,22 +241,41 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12 mx-auto  my-5">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-4 text-center">TERAPIAS</h5>
+                    <div class="col-12 mx-auto ">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-4 text-center green">
+                            {!! get_section(4, 'title')->description !!}
+                        </h5>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <?php $imagenTerapia1 = get_images(4, false, 0, '1-' . $lenguaje); ?>
+                    <?php $imagenTerapia2 = get_images(4, false, 0, '2-' . $lenguaje); ?>
+
+                    @if ($imagenTerapia1 !== null)
+                        <div class="col-12 col-md-6">
+                            <img class="img-fluid"
+                                src="{{ asset('img/terapias') . '/' . $imagenTerapia1->image }}">
+                        </div>
+
+                    @endif
+                    @if ($imagenTerapia2 !== null)
+                        <div class="col-12 col-md-6">
+                            <img class="img-fluid"
+                                src="{{ asset('img/terapias') . '/' . $imagenTerapia2->image }}">
+                        </div>
+
+                    @endif
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
                         <p class="mb-3">
-                            A) Individuales: Se usan varias áreas de la medicina alternativa como biodescodificación,
-                            theta healing, terapia floral, medicina germánica, par biomagnético, transgeneracional,
-                            registros akashicos, y más; siempre con las bases de la medicina del aura. Es por cita y
-                            contactarse por Whatsapp al 52 3311359027. <br><br>
-                            B) Grupales on line: En cada sesión se trabaja un tema distinto de la vida, desde la salud
-                            física hasta lo mental, emocional y espiritual; como por ejemplo: sistema digestivo,
-                            circulatorio, sanando a mamá y papá, ancestros, vidas pasadas, creencias limitantes y que
-                            bloquean tu vida, etc. Se inicia con clase y se termina con la terapia grupal. Son una vez
-                            cada semana y dura hora y media. Hay horario en la mañana y en la tarde.
+                            {!! get_section(4, 'description')->description !!}
                         </p>
                     </div>
                 </div>
-                <div class="row flex-center h-100">
+                <div class="row flex-center h-100 d-none">
                     <div class="col-xl-9">
                         <div class="row justify-content-center">
                             <div class="col-md-4 mb-4">
@@ -314,40 +351,34 @@
         <section id="events">
 
             <div class="container">
+
                 <div class="row">
                     <div class="col-12 mx-auto  mb-4">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center">TALLERES</h5>
-                        <p class="mb-3">
-                            a) Mi energía… Mi salud: Se enseña sobre la energía, aura y chakras, como sentirla y
-                            percibirla, sobre bloqueos energéticos y como sanarlos. También se enseña a dar energía de
-                            diferentes frecuencias para sanar una zona del cuerpo. Es teórico, práctico y terapias.<br>
-                            b) Yo en mi mismo, en la familia y en la sociedad: Se ve la personalidad, los mecanismos de
-                            defensa que adoptamos para enfrentar la vida, como vivir desde el observador para sanar y
-                            armonizar nuestra vida, el impacto de la familia y la sociedad en la programación de nuestra
-                            vida, la dualidad, el holograma de la realidad, transgeneracional y más. Teoría, prácticas y
-                            terapia.<br><br>
-                            c) Meditación: Se enseña los diferentes tipos de meditación que hay y cuando se usa cada
-                            una. Además se darán herramientas para mejorar tu práctica de meditación. Se practicarán
-                            cada uno de los tipos de meditación. Taller teórico y práctico.<br>
-                            d) Relaciones interpersonales/conexiones energéticas: ¿cómo mejorarlas y sanarlas?: A través
-                            de este taller conocerás los aspectos tóxicos de la personalidad y como daña a uno mismo y a
-                            los demás. Conocerás como manejar las situaciones en las relaciones no sanas. Se te dará
-                            herramientas para armonizar aspectos desequilibrados de tu ser. Hay teoría, prácticas y
-                            terapia.<br><br>
-                            e) Los cuentos que me cuento: Aprenderás el mecanismo de la mente para crear la realidad y
-                            guardar los sucesos de la vida. Aprenderás sobre el ego y cómo manejarlo. Veras que
-                            programas tienes en tu inconsciente que te limitan o te bloquean tus proyectos en tu vida.
-                            Trabajaras con tu sombra para sacarla, liberarla y sanarla. Es teórico, práctico y hay
-                            terapia.<br><br>
-                            f) Yo Hombre, Yo Mujer: A través de este taller aprenderás como son las mujeres y los
-                            hombres desde el punto de vista emocional, mental y del alma; así como mejorar la relación
-                            con uno mismo y con tu pareja. Se te darán las herramientas para mejorar tu relación de
-                            pareja; atrévete a volver al amor y al romance. Es un taller teórico, práctico y con
-                            terapia.
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center green">
+                            {!! get_section(5, 'title')->description !!}
+                        </h5>
+
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <?php $imagentaller = get_images(5, false, 0, $lenguaje); ?>
+                    @if ($imagentaller !== null)
+                        <div class="col-12 col-md-6">
+                            <img class="img-fluid"
+                                src="{{ asset('img/talleres') . '/' . $imagentaller->image }}">
+                        </div>
+
+                    @endif
+
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <p class="mt-3">
+                            {!! get_section(5, 'description')->description !!}
                         </p>
                     </div>
                 </div>
-                <div class="row flex-center h-100">
+                <div class="row flex-center h-100 d-none">
                     <div class="col-xl-9">
                         <div class="carousel slide" id="carouselEvents" data-bs-ride="carousel">
                             <div class="carousel-inner">
@@ -464,24 +495,37 @@
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12 mx-auto my-5">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center">LIBROS</h5>
+                    <div class="col-12 mx-auto ">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center green">
+                            {!! get_section(6, 'title')->description !!}
+                        </h5>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <?php $imagenLibro1 = get_images(4, false, 0, '1-' . $lenguaje); ?>
+                    <?php $imagenLibro2 = get_images(4, false, 0, '2-' . $lenguaje); ?>
+
+                    @if ($imagenLibro1 !== null)
+                        <div class="col-12 col-md-6">
+                            <img class="img-fluid"
+                                src="{{ asset('img/terapias') . '/' . $imagenLibro1->image }}">
+                        </div>
+
+                    @endif
+                    @if ($imagenLibro2 !== null)
+                        <div class="col-12 col-md-6">
+                            <img class="img-fluid"
+                                src="{{ asset('img/terapias') . '/' . $imagenLibro2->image }}">
+                        </div>
+
+                    @endif
+
+                </div>
+                <div class="row mt-3">
+                    <div class="col-12">
                         <p class="mb-3">
-                            a) Anatomía y fisiología del aura: campos, chakras, interfase, esferas mentales y
-                            conexiones:
-                            A través de las páginas de este libro descubrirás que el aura y los chakras son más de lo
-                            que conoces, que están constituidos por células que forman tejidos, órganos y sistemas cuyas
-                            partículas subatómicas vibran en una frecuencia mayor a las del cuerpo físico, razón por la
-                            cual no los podemos ver ni tocas. Para que el SER pueda tener una experiencia humana se
-                            requieren 20 campos áuricos, cuyos procesos están coordinados por las esferas mentales que
-                            son parte del cerebro del Alma. <br><br>
-                            b) Mi energía,,, mi salud. La respuesta para la sanación de las enfermedades:
-                            A lo largo de este libro encontrarás información sobre como es el aura, como funciona y como
-                            generamos las enfermedades y eventos positivos como negativos en nuestra vida. Aprenderás
-                            como es el lenguaje de tu cuerpo, lo que te quiere decir. También se da consejos,
-                            meditaciones y ejercicios para sanar y mejorar tu vida. Hablaré sobre la medicina alopática,
-                            alternativa y la nueva medicina del aura que es la base de la medicina alternativa u
-                            holística y como combinarlas para una recuperación de la salud.
+                            {!! get_section(6, 'description')->description !!}
                         </p>
                     </div>
                 </div>
@@ -498,7 +542,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center">CONTACTO</h5>
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center green">CONTACTO</h5>
                     </div>
                 </div>
                 <div class="row mt-4">

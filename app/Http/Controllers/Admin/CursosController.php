@@ -67,7 +67,7 @@ class CursosController extends Controller
     public function edit($lang)
     {
         $es_sections = SectionLanguage::where('lang', $lang)->where('section_id', 3)->get();
-        $image = ImagesSection::where('section_id', 3)->where('is_movil', 0)->first();
+        $image = get_images(3, false, 0, $lang);
         $image_thumb = ImagesSection::where('section_id', 3)->where('is_movil', 1)->first();
         $section_id = 1;
         $set_lang = $lang;
@@ -88,6 +88,13 @@ class CursosController extends Controller
             flash('Elemento editado');
             return redirect('admin/cursos');
         }
+    }
+
+    public function destroyImage($id, $lang)
+    {
+        ImagesSection::drop($this->path_image, $id);
+        flash('Elemento borrado');
+        return redirect('/admin/cursos/' . $lang . '/edit');
     }
 
     /**

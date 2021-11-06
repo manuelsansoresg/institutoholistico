@@ -68,11 +68,12 @@ class LibrosController extends Controller
     public function edit($lang)
     {
         $es_sections = SectionLanguage::where('lang', $lang)->where('section_id', 6)->get();
-        $image = ImagesSection::where('section_id', 6)->where('is_movil', 0)->first();
+        $image = get_images(6, false, 0, '1-' . $lang);
+        $image2 = get_images(6, false, 0, '2-' . $lang);
         $image_thumb = ImagesSection::where('section_id', 6)->where('is_movil', 1)->first();
         $section_id = 1;
         $set_lang = $lang;
-        return view('admin.libros.edit', compact('es_sections', 'image', 'section_id', 'set_lang', 'image_thumb'));
+        return view('admin.libros.edit', compact('es_sections', 'image', 'image2', 'section_id', 'set_lang', 'image_thumb'));
     }
 
     /**
@@ -89,6 +90,13 @@ class LibrosController extends Controller
             flash('Elemento editado');
             return redirect('admin/libros');
         }
+    }
+
+    public function destroyImage($id, $lang)
+    {
+        ImagesSection::drop($this->path_image, $id);
+        flash('Elemento borrado');
+        return redirect('/admin/libros/' . $lang . '/edit');
     }
 
     /**

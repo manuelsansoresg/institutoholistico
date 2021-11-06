@@ -108,23 +108,6 @@ class SectionLanguage extends Model
 
 
 
-        if ($request->hasFile('imagen') != false) {
-            $imagen = self::upload($request, 'imagen', $path);
-            $new_image = new ImagesSection();
-            $new_image->section_id = 2;
-            $new_image->alias = $request->lang . '-1';
-            $new_image->image = $imagen;
-            $new_image->save();
-        }
-
-        if ($request->hasFile('imagen2') != false) {
-            $imagen2 = self::upload($request, 'imagen2', $path);
-            $new_image = new ImagesSection();
-            $new_image->section_id = 2;
-            $new_image->alias = $request->lang . '-2';
-            $new_image->image = $imagen2;
-            $new_image->save();
-        }
 
 
         return true;
@@ -143,13 +126,13 @@ class SectionLanguage extends Model
             ->where('name', 'description')
             ->first();
 
-        /*  $description2 = SectionLanguage::where('section_id', 3)
+        $video = SectionLanguage::where('section_id', 3)
             ->where('lang', $lang)
-            ->where('name', 'description2')
-            ->first(); */
+            ->where('name', 'video')
+            ->first();
         $description = ($description === null) ? null : $description;
 
-        return array('id' => $title->id, 'section_id' => $title->section_id,  'lang' => $title->lang,  'title' => $title->description, 'description' => $description->description);
+        return array('id' => $title->id, 'section_id' => $title->section_id, 'video' => $video, 'lang' => $title->lang,  'title' => $title->description, 'description' => $description->description);
     }
 
     public static function getAllCurso()
@@ -173,8 +156,8 @@ class SectionLanguage extends Model
         SectionLanguage::where('lang', $request->lang)->where('name', 'description')->where('section_id', 3)
             ->update(['description' => $request->descripcion]);
 
-        SectionLanguage::where('lang', $request->lang)->where('name', 'description2')->where('section_id', 3)
-            ->update(['description' => $request->descripcion2]);
+        SectionLanguage::where('lang', $request->lang)->where('name', 'video')->where('section_id', 3)
+            ->update(['description' => $request->video]);
 
         if ($request->hasFile('imagen') != false) {
             $imagen = self::upload($request, 'imagen', $path);
@@ -182,19 +165,11 @@ class SectionLanguage extends Model
             $new_image = new ImagesSection();
             $new_image->section_id = 3;
             $new_image->image = $imagen;
+            $new_image->alias = $request->lang;
             $new_image->save();
         }
 
-        if ($request->hasFile('imagen_movil') != false) {
-            $imagen_movil = self::upload($request, 'imagen_movil', $path, true);
 
-
-            $new_image = new ImagesSection();
-            $new_image->section_id = 3;
-            $new_image->image = $imagen_movil;
-            $new_image->is_movil = 1;
-            $new_image->save();
-        }
 
         return true;
     }
@@ -240,17 +215,20 @@ class SectionLanguage extends Model
             $new_image = new ImagesSection();
             $new_image->section_id = 4;
             $new_image->image = $imagen;
+            $new_image->alias = '1-' . $request->lang;
             $new_image->save();
         }
 
-        if ($request->hasFile('imagen_movil') != false) {
-            $imagen_movil = self::upload($request, 'imagen_movil', $path, true);
+
+
+        if ($request->hasFile('imagen2') != false) {
+            $imagen2 = self::upload($request, 'imagen2', $path, true);
 
 
             $new_image = new ImagesSection();
             $new_image->section_id = 4;
-            $new_image->image = $imagen_movil;
-            $new_image->is_movil = 1;
+            $new_image->image = $imagen2;
+            $new_image->alias = '2-' . $request->lang;
             $new_image->save();
         }
         return true;
@@ -297,19 +275,11 @@ class SectionLanguage extends Model
             $new_image = new ImagesSection();
             $new_image->section_id = 5;
             $new_image->image = $imagen;
+            $new_image->alias = $request->lang;
             $new_image->save();
         }
 
-        if ($request->hasFile('imagen_movil') != false) {
-            $imagen_movil = self::upload($request, 'imagen_movil', $path, true);
 
-
-            $new_image = new ImagesSection();
-            $new_image->section_id = 5;
-            $new_image->image = $imagen_movil;
-            $new_image->is_movil = 1;
-            $new_image->save();
-        }
         return true;
     }
 
@@ -354,19 +324,23 @@ class SectionLanguage extends Model
             $new_image = new ImagesSection();
             $new_image->section_id = 6;
             $new_image->image = $imagen;
+            $new_image->alias = '1-' . $request->lang;
             $new_image->save();
         }
 
-        if ($request->hasFile('imagen_movil') != false) {
-            $imagen_movil = self::upload($request, 'imagen_movil', $path, true);
 
+
+        if ($request->hasFile('imagen2') != false) {
+            $imagen2 = self::upload($request, 'imagen2', $path, true);
 
             $new_image = new ImagesSection();
             $new_image->section_id = 6;
-            $new_image->image = $imagen_movil;
-            $new_image->is_movil = 1;
+            $new_image->image = $imagen2;
+            $new_image->alias = '2-' . $request->lang;
             $new_image->save();
         }
+
+
         return true;
     }
 

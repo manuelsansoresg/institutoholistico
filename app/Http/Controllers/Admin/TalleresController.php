@@ -90,6 +90,13 @@ class TalleresController extends Controller
         }
     }
 
+    public function destroyImage($id, $lang)
+    {
+        ImagesSection::drop($this->path_image, $id);
+        flash('Elemento borrado');
+        return redirect('/admin/talleres/' . $lang . '/edit');
+    }
+
     /**
      * Remove the specified resource from storage.
      *

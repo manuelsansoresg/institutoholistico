@@ -47,3 +47,13 @@ function get_images($section_id, $is_movil = false, $result = 0, $alias = false)
 
     return $images;
 }
+
+function get_youtube_id_from_url($url)
+{
+    $result = '';
+
+    if ($url !== '&nbsp;') {
+        preg_match('/(http(s|):|)\/\/(www\.|)yout(.*?)\/(embed\/|watch.*?v=|)([a-z_A-Z0-9\-]{11})/i', $url, $results);
+        return $results[6];
+    }
+}

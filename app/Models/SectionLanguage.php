@@ -290,12 +290,25 @@ class SectionLanguage extends Model
             ->where('lang', $lang)
             ->where('name', 'title')
             ->first();
-        $description = SectionLanguage::where('section_id', 6)
+
+        $titlelibro1 = SectionLanguage::where('section_id', 6)
             ->where('lang', $lang)
-            ->where('name', 'description')
+            ->where('name', 'titlelibro1')
+            ->first();
+        $description1 = SectionLanguage::where('section_id', 6)
+            ->where('lang', $lang)
+            ->where('name', 'description1')
+            ->first();
+        $titlelibro2 = SectionLanguage::where('section_id', 6)
+            ->where('lang', $lang)
+            ->where('name', 'titlelibro2')
+            ->first();
+        $description2 = SectionLanguage::where('section_id', 6)
+            ->where('lang', $lang)
+            ->where('name', 'description2')
             ->first();
 
-        return array('id' => $title->id, 'section_id' => $title->section_id,  'lang' => $title->lang,  'title' => $title->description, 'description' => $description->description);
+        return array('id' => $title->id, 'titlelibro1' => $titlelibro1, 'titlelibro2' => $titlelibro2, 'description2' => $description2,  'section_id' => $title->section_id,  'lang' => $title->lang,  'title' => $title->description, 'description1' => $description1->description);
     }
 
     public static function getAllLibro()
@@ -316,8 +329,15 @@ class SectionLanguage extends Model
         SectionLanguage::where('lang', $request->lang)->where('name', 'title')->where('section_id', 6)
             ->update(['description' => $request->titulo]);
 
-        SectionLanguage::where('lang', $request->lang)->where('name', 'description')->where('section_id', 6)
-            ->update(['description' => $request->descripcion]);
+        SectionLanguage::where('lang', $request->lang)->where('name', 'titlelibro1')->where('section_id', 6)
+            ->update(['description' => $request->titlelibro1]);
+        SectionLanguage::where('lang', $request->lang)->where('name', 'description1')->where('section_id', 6)
+            ->update(['description' => $request->description1]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'titlelibro2')->where('section_id', 6)
+            ->update(['description' => $request->titlelibro2]);
+        SectionLanguage::where('lang', $request->lang)->where('name', 'description2')->where('section_id', 6)
+            ->update(['description' => $request->description2]);
 
         if ($request->hasFile('imagen') != false) {
             $imagen = self::upload($request, 'imagen', $path);
@@ -344,6 +364,84 @@ class SectionLanguage extends Model
         return true;
     }
 
+    public static function getContacto($lang)
+    {
+        $data = array();
+        $title = SectionLanguage::where('section_id', 7)
+            ->where('lang', $lang)
+            ->where('name', 'title')
+            ->first();
+        $description = SectionLanguage::where('section_id', 7)
+            ->where('lang', $lang)
+            ->where('name', 'description')
+            ->first();
+
+        $celular_contact = SectionLanguage::where('section_id', 7)
+            ->where('lang', $lang)
+            ->where('name', 'celular_contact')
+            ->first();
+
+        $email_contact = SectionLanguage::where('section_id', 7)
+            ->where('lang', $lang)
+            ->where('name', 'email_contact')
+            ->first();
+
+        return array('id' => $title->id, 'section_id' => $title->section_id, 'email_contact'  => $email_contact->description, 'celular_contact' => $celular_contact->description, 'description' => $description->description,  'lang' => $title->lang,  'title' => $title->description);
+    }
+
+    public static function getAllContacto()
+    {
+        $data = array();
+        $es = self::getContacto('es');
+        $en = self::getContacto('en');
+        $fr = self::getContacto('fr');
+
+        $data[] = ($es);
+        $data[] = ($en);
+        $data[] = ($fr);
+        return $data;
+    }
+
+    public static function editContacto($request, $path)
+    {
+        SectionLanguage::where('lang', $request->lang)->where('name', 'title')->where('section_id', 7)
+            ->update(['description' => $request->titulo]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'description')->where('section_id', 7)
+            ->update(['description' => $request->descripcion]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'email_contact')->where('section_id', 7)
+            ->update(['description' => $request->email_contact]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'celular_contact')->where('section_id', 7)
+            ->update(['description' => $request->celular_contact]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'youtube_contact')->where('section_id', 7)
+            ->update(['description' => $request->youtube_contact]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'pages_facebook_contact')->where('section_id', 7)
+            ->update(['description' => $request->pages_facebook_contact]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'name')->where('section_id', 7)
+            ->update(['description' => $request->name]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'city')->where('section_id', 7)
+            ->update(['description' => $request->city]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'country')->where('section_id', 7)
+            ->update(['description' => $request->country]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'telephone')->where('section_id', 7)
+            ->update(['description' => $request->telephone]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'email')->where('section_id', 7)
+            ->update(['description' => $request->email]);
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'comment')->where('section_id', 7)
+            ->update(['description' => $request->comment]);
+
+        return true;
+    }
 
     /* Criteria list*/
     public static function createCriteriaList($request)
@@ -566,27 +664,27 @@ class SectionLanguage extends Model
     /* contacto*/
     public static function getContact($lang)
     {
-        $lbl_title = SectionLanguage::where('section_id', 3)
+        $lbl_title = SectionLanguage::where('section_id', 7)
             ->where('lang', $lang)
             ->where('name', 'title')
             ->first();
 
-        $name = SectionLanguage::where('section_id', 3)
+        $name = SectionLanguage::where('section_id', 7)
             ->where('lang', $lang)
             ->where('name', 'name')
             ->first();
 
-        $email = SectionLanguage::where('section_id', 3)
+        $email = SectionLanguage::where('section_id', 7)
             ->where('lang', $lang)
             ->where('name', 'email')
             ->first();
 
-        $phone = SectionLanguage::where('section_id', 3)
+        $phone = SectionLanguage::where('section_id', 7)
             ->where('lang', $lang)
             ->where('name', 'phone')
             ->first();
 
-        $message = SectionLanguage::where('section_id', 3)
+        $message = SectionLanguage::where('section_id', 7)
             ->where('lang', $lang)
             ->where('name', 'message')
             ->first();
@@ -614,41 +712,34 @@ class SectionLanguage extends Model
 
     public static function editContact($request, $path)
     {
-        SectionLanguage::where('lang', $request->lang)->where('name', 'title')->where('section_id', 3)
+
+        SectionLanguage::where('lang', $request->lang)->where('name', 'title')->where('section_id', 7)
             ->update(['description' => $request->titulo]);
 
-        SectionLanguage::where('lang', $request->lang)->where('name', 'name')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'name')->where('section_id', 7)
             ->update(['description' => $request->nombre_formulario]);
-        SectionLanguage::where('lang', $request->lang)->where('name', 'email')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'email')->where('section_id', 7)
             ->update(['description' => $request->email_formulario]);
-        SectionLanguage::where('lang', $request->lang)->where('name', 'phone')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'phone')->where('section_id', 7)
             ->update(['description' => $request->telefono_formulario]);
-        SectionLanguage::where('lang', $request->lang)->where('name', 'message')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'message')->where('section_id', 7)
             ->update(['description' => $request->mensaje_formulario]);
 
-        SectionLanguage::where('lang', $request->lang)->where('name', 'txt_address')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'txt_address')->where('section_id', 7)
             ->update(['description' => $request->direccion]);
-        SectionLanguage::where('lang', $request->lang)->where('name', 'val_address')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'val_address')->where('section_id', 7)
             ->update(['description' => $request->contenido_direccion]);
 
-        SectionLanguage::where('lang', $request->lang)->where('name', 'txt_phone')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'txt_phone')->where('section_id', 7)
             ->update(['description' => $request->telefono]);
-        SectionLanguage::where('lang', $request->lang)->where('name', 'val_phone')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'val_phone')->where('section_id', 7)
             ->update(['description' => $request->contenido_telefono]);
 
-        SectionLanguage::where('lang', $request->lang)->where('name', 'txt_email')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'txt_email')->where('section_id', 7)
             ->update(['description' => $request->email]);
-        SectionLanguage::where('lang', $request->lang)->where('name', 'val_email')->where('section_id', 3)
+        SectionLanguage::where('lang', $request->lang)->where('name', 'val_email')->where('section_id', 7)
             ->update(['description' => $request->contenido_email]);
-
-        if ($request->hasFile('imagen') != false) {
-            $imagen = self::upload($request, 'imagen', $path);
-
-            $new_image = new ImagesSection();
-            $new_image->section_id = 3;
-            $new_image->image = $imagen;
-            $new_image->save();
-        }
+        return true;
     }
     /* contacto*/
 

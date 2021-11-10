@@ -29,10 +29,12 @@
     <!--    Stylesheets-->
     <!-- ===============================================-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link href="/css/theme.css" rel="stylesheet" />
     <link href="/css/owl.carousel.min.css" rel="stylesheet" />
     <link href="/css/owl.theme.default.min.css" rel="stylesheet" />
     <link href="/css/landing.css" rel="stylesheet" />
+
 
 </head>
 
@@ -53,21 +55,18 @@
                 <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-medium active"
-                                aria-current="page" href="index.html">Inicio</a></li>
+                                aria-current="page" href="/"> {!! get_section(8, 'menu_home')->description !!}</a></li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#events">Cursos</a></li>
+                                href="#course">{!! get_section(8, 'menu_course')->description !!}</a></li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#services">Terapias </a></li>
+                                href="#therapy">{!! get_section(8, 'menu_therapy')->description !!} </a></li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#services">Talleres </a></li>
+                                href="#workshop">{!! get_section(8, 'menu_workshop')->description !!} </a></li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#services">Libros </a></li>
+                                href="#book">{!! get_section(8, 'menu_book')->description !!} </a></li>
                         <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#services">Contacto </a></li>
-                        {{-- <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#testimonial">Testimonial </a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#country">Country </a></li> --}}
+                                href="#contact">{!! get_section(8, 'menu_contact')->description !!} </a></li>
+
                     </ul>
                     <form class="ps-lg-5">
                         <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
@@ -81,12 +80,12 @@
         </nav>
         <section class="py-0" id="home">
             <?php $image = get_images(1); ?>
-            <div class="bg-holder d-none d-md-block"
+            <div class="bg-holder d-none d-md-block" data-aos="fade-in"
                 style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right bottom;background-size:contain;margin-top:5.625rem;">
             </div>
             <!--/.bg-holder-->
 
-            <div class="bg-holder d-block d-md-none"
+            <div class="bg-holder d-block d-md-none" data-aos="fade-in"
                 style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right top;background-size:contain;margin-top:5.625rem;">
             </div>
             <!--/.bg-holder-->
@@ -94,41 +93,35 @@
             <div class="container">
                 <div class="row align-items-center min-vh-md-75 mt-7">
                     <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center">
-                        {!! get_section(1, 'title')->description !!}
-                        <p class="mb-5 fs-1 lh-lg">
+                        <div data-aos="fade-up">
+                            {!! get_section(1, 'title')->description !!}
+                        </div>
+                        <p class="mb-5 fs-1 lh-lg" data-aos="fade-up">
                             {!! get_section(1, 'description')->description !!}
                         </p>
-                        <a class="btn btn-lg btn-primary hover-top btn-glow" href="#">CONTACTO2
+                        <a class="btn btn-lg btn-primary hover-top btn-glow" data-aos="fade-up"
+                            href="#">{!! get_section(8, 'menu_contact')->description !!}
                             <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25"
                                 height="25" fill="currentColor" viewBox="0 0 16 16">
                                 <path fill-rule="evenodd"
                                     d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
                                 </path>
                             </svg></a>
-                        <div class="mt-5 mt-xl-6">
+                        <div class="mt-5 mt-xl-6" data-aos="fade-in">
                             <ul class="list-unstyled list-inline mb-0">
-                                <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!">
-                                        <svg class="bi bi-facebook text-facebook" xmlns="http://www.w3.org/2000/svg"
-                                            width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
-                                            </path>
-                                        </svg></a></li>
-                                <li class="list-inline-item me-3"><a href="#!">
-                                        <svg class="bi bi-twitter text-twitter" xmlns="http://www.w3.org/2000/svg"
-                                            width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
-                                            </path>
-                                        </svg></a></li>
-                                <li class="list-inline-item me-3"><a href="#!">
-                                        <svg class="bi bi-instagram text-instagram text-youtube"
-                                            xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-                                            fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
-                                            </path>
-                                        </svg></a></li>
+                                <li class="list-inline-item me-3">
+                                    <a class="text-decoration-none"
+                                        href="https://www.facebook.com/Escuela-de-Medicina-Hol%C3%ADstica-del-Aura-105822991884601"
+                                        target="_blank">
+                                        <i class="fab fa-facebook"></i>
+                                    </a>
+                                </li>
+                                <li class="list-inline-item me-3">
+                                    <a href="https://www.youtube.com/channel/UCGK8jAV5zhFW5xbTIYnyqbw" target="_blank">
+                                        <i class="fab fa-youtube"></i>
+                                    </a>
+                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -142,10 +135,10 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 green">
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 green" data-aos="fade-up">
                             {!! get_section(2, 'title')->description !!}
                         </h5>
-                        <p class="mb-3">
+                        <p class="mb-3" data-aos="fade-up">
                             {!! get_section(2, 'description')->description !!}
                         </p>
                     </div>
@@ -154,11 +147,11 @@
         </section>
         <!-- <section> begin ============================-->
         <section class="bg-100 py-5">
-
+            <?php $lenguaje = session('lang') == null ? 'es' : session('lang'); ?>
             <div class="col-12">
                 <div class="carousel-wrap" id="carousel">
                     <div class="owl-carousel owl-theme">
-                        <?php $lenguaje = isset($lenguaje) ? $lenguaje : 'es'; ?>
+
                         <?php $images = get_images(2, false, 1, $lenguaje); ?>
                         @foreach ($images as $image)
                             <div><img src="{{ asset('img/carrusel') . '/' . $image->image }}"></div>
@@ -177,12 +170,12 @@
 
         <!-- ============================================-->
         <!-- <section> begin ============================-->
-        <section id="services">
+        <section id="course">
 
             <div class="container">
                 <div class="row">
 
-                    <div class="col-12 mx-auto">
+                    <div class="col-12 mx-auto" data-aos="fade-up">
                         <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center green">
                             {!! get_section(3, 'title')->description !!}
                         </h5>
@@ -195,7 +188,7 @@
                     <?php $video = get_section(3, 'video')->description; ?>
                     <?php $formatVideo = 'https://www.youtube.com/embed/' . get_youtube_id_from_url($video); ?>
                     @if ($video !== '' && $video !== '&nbsp;')
-                        <div class="col-12 col-md-6 text-center">
+                        <div class="col-12 col-md-6 text-center" data-aos="fade-up">
 
                             <iframe class="youtube" height="315" src="{{ $formatVideo }}"
                                 title="YouTube video player" frameborder="0"
@@ -210,13 +203,13 @@
 
                 </div>
                 <div class="row mt-5 align-items-center">
-                    <div class="col-12 col-md-6">
+                    <div class="col-12 col-md-6 text-justify" data-aos="fade-up">
                         <p class="">
                             {!! get_section(3, 'description')->description !!}
                         </p>
                     </div>
                     @if ($image_cursos !== null)
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6" data-aos="fade-in">
 
                             <img class="img-fluid" src="{{ asset('img/cursos') . '/' . $image_cursos->image }}">
                         </div>
@@ -237,30 +230,30 @@
 
         <!-- ============================================-->
         <!-- <section> begin ============================-->
-        <section class="bg-100">
+        <section id="therapy" class="bg-100">
 
             <div class="container">
                 <div class="row">
-                    <div class="col-12 mx-auto ">
+                    <div class="col-12 mx-auto text-justify " data-aos="fade-up">
                         <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-4 text-center green">
                             {!! get_section(4, 'title')->description !!}
                         </h5>
 
                     </div>
                 </div>
-                <div class="row">
+                <div class="row justify-content-center">
                     <?php $imagenTerapia1 = get_images(4, false, 0, '1-' . $lenguaje); ?>
                     <?php $imagenTerapia2 = get_images(4, false, 0, '2-' . $lenguaje); ?>
 
                     @if ($imagenTerapia1 !== null)
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 text-center" data-aos="fade-in">
                             <img class="img-fluid"
                                 src="{{ asset('img/terapias') . '/' . $imagenTerapia1->image }}">
                         </div>
 
                     @endif
                     @if ($imagenTerapia2 !== null)
-                        <div class="col-12 col-md-6">
+                        <div class="col-12 col-md-6 text-center" data-aos="fade-in">
                             <img class="img-fluid"
                                 src="{{ asset('img/terapias') . '/' . $imagenTerapia2->image }}">
                         </div>
@@ -268,75 +261,14 @@
                     @endif
 
                 </div>
-                <div class="row">
-                    <div class="col-12">
+                <div class="row mt-3" data-aos="fade-up">
+                    <div class="col-12 text-justify">
                         <p class="mb-3">
                             {!! get_section(4, 'description')->description !!}
                         </p>
                     </div>
                 </div>
-                <div class="row flex-center h-100 d-none">
-                    <div class="col-xl-9">
-                        <div class="row justify-content-center">
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100 shadow card-span"><img class="card-img-top"
-                                        src="/img/gallery/news-1.png" alt="news" />
-                                    <div class="card-body">
-                                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12"
-                                            height="12" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
-                                            </path>
-                                            <path
-                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
-                                            </path>
-                                        </svg><span class="fs--1">17 Diciembre 2021</span>
-                                        <h5 class="fs-lg-1 my-3">Terapia lectura del aura</h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100 shadow card-span"><img class="card-img-top"
-                                        src="/img/gallery/news-2.png" alt="news" />
-                                    <div class="card-body">
-                                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12"
-                                            height="12" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
-                                            </path>
-                                            <path
-                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
-                                            </path>
-                                        </svg>
-                                        <span class="fs--1">18 Diciembre 2021</span>
-                                        <h5 class="fs-lg-1 my-3">Terapia lectura del aura
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4 mb-4">
-                                <div class="card h-100 shadow card-span"><img class="card-img-top"
-                                        src="/img/gallery/news-3.png" alt="news" />
-                                    <div class="card-body">
-                                        <svg class="bi bi-calendar2 me-2" xmlns="http://www.w3.org/2000/svg" width="12"
-                                            height="12" fill="currentColor" viewBox="0 0 16 16">
-                                            <path
-                                                d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM2 2a1 1 0 0 0-1 1v11a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1H2z">
-                                            </path>
-                                            <path
-                                                d="M2.5 4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5V4z">
-                                            </path>
-                                        </svg>
-                                        <span class="fs--1">18 Diciembre 2021</span>
-                                        <h5 class="fs-lg-1 my-3">Terapia lectura del aura
-                                        </h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
-                </div>
             </div><!-- end of .container-->
 
         </section>
@@ -348,19 +280,19 @@
 
         <!-- ============================================-->
         <!-- <section> begin ============================-->
-        <section id="events">
+        <section id="workshop">
 
             <div class="container">
 
                 <div class="row">
-                    <div class="col-12 mx-auto  mb-4">
+                    <div class="col-12 mx-auto  mb-4" data-aos="fade-up">
                         <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3 text-center green">
                             {!! get_section(5, 'title')->description !!}
                         </h5>
 
                     </div>
                 </div>
-                <div class="row justify-content-center">
+                <div class="row justify-content-center" data-aos="fade-up">
                     <?php $imagentaller = get_images(5, false, 0, $lenguaje); ?>
                     @if ($imagentaller !== null)
                         <div class="col-12 col-md-6">
@@ -372,114 +304,13 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-12">
+                    <div class="col-12 text-justify" data-aos="fade-up">
                         <p class="mt-3">
                             {!! get_section(5, 'description')->description !!}
                         </p>
                     </div>
                 </div>
-                <div class="row flex-center h-100 d-none">
-                    <div class="col-xl-9">
-                        <div class="carousel slide" id="carouselEvents" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active" data-bs-interval="10000">
-                                    <div class="row h-100 justify-content-center">
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100 shadow px-2 px-lg-3 card-span pt-4">
-                                                <div class="text-center text-md-start card-hover">
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center"><span
-                                                                class="badge bg-soft-primary text-primary fs--1 fw-light p-3 rounded-1"><span
-                                                                    class="fw-medium fs-1 mb-2">23</span><br>DIC</span>
-                                                            <h6 class="fw-light fs-1 fs-lg-2 text-start ms-3">Charla en
-                                                                el auditorio </h6>
-                                                        </div>
-                                                        <p class="mt-4 mb-md-0 mb-lg-3 fw-light lh-base text-start">
-                                                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                                            Iste natus rem dolores soluta culpa consequatur.
-                                                        </p>
-                                                        <div class="d-flex flex-between-center">
-                                                            <div class="d-flex align-items-center"><a
-                                                                    class="btn btn-lg ps-0 text-primary fw-light fs--1"
-                                                                    href="#" role="button">Leer mas
-                                                                    <svg class="bi bi-arrow-right-short"
-                                                                        xmlns="http://www.w3.org/2000/svg" width="25"
-                                                                        height="25" fill="currentColor"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
-                                                                        </path>
-                                                                    </svg></a></div>
-                                                            <div class="d-flex align-items-center">
-                                                                <svg class="bi bi-alarm me-2"
-                                                                    xmlns="http://www.w3.org/2000/svg" width="16"
-                                                                    height="16" fill="currentColor" viewBox="0 0 16 16">
-                                                                    <path
-                                                                        d="M8.5 5.5a.5.5 0 0 0-1 0v3.362l-1.429 2.38a.5.5 0 1 0 .858.515l1.5-2.5A.5.5 0 0 0 8.5 9V5.5z">
-                                                                    </path>
-                                                                    <path
-                                                                        d="M6.5 0a.5.5 0 0 0 0 1H7v1.07a7.001 7.001 0 0 0-3.273 12.474l-.602.602a.5.5 0 0 0 .707.708l.746-.746A6.97 6.97 0 0 0 8 16a6.97 6.97 0 0 0 3.422-.892l.746.746a.5.5 0 0 0 .707-.708l-.601-.602A7.001 7.001 0 0 0 9 2.07V1h.5a.5.5 0 0 0 0-1h-3zm1.038 3.018a6.093 6.093 0 0 1 .924 0 6 6 0 1 1-.924 0zM0 3.5c0 .753.333 1.429.86 1.887A8.035 8.035 0 0 1 4.387 1.86 2.5 2.5 0 0 0 0 3.5zM13.5 1c-.753 0-1.429.333-1.887.86a8.035 8.035 0 0 1 3.527 3.527A2.5 2.5 0 0 0 13.5 1z">
-                                                                    </path>
-                                                                </svg>
-                                                                <p class="mb-0 fw-light text-dark fs--1">10:00 AM -
-                                                                    2:00 PM</p>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 mb-4">
-                                            <div class="card h-100 shadow px-2 px-lg-3 card-span pt-4">
-                                                <div class="text-center text-md-start card-hover">
-                                                    <div class="card-body">
-                                                        <div class="d-flex align-items-center"><span
-                                                                class="badge bg-soft-primary text-primary fs--1 fw-light p-3 rounded-1"><span
-                                                                    class="fw-medium fs-1 mb-2">30</span><br>Oct</span>
-                                                            <h6 class="fw-light fs-1 fs-lg-2 text-start ms-3">
-                                                                Charla en la universidad tasco</h6>
-                                                        </div>
-                                                        <p class="mt-4 mb-md-0 mb-lg-3 fw-light lh-base text-start">
-                                                            Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                                                            Aut eveniet ipsum, suscipit voluptas eius voluptatem. </p>
-                                                        <div class="d-flex flex-between-center">
-                                                            <div class="d-flex align-items-center"><a
-                                                                    class="btn btn-lg ps-0 text-primary fw-light fs--1"
-                                                                    href="#" role="button">Leer mas
-                                                                    <svg class="bi bi-arrow-right-short"
-                                                                        xmlns="http://www.w3.org/2000/svg" width="25"
-                                                                        height="25" fill="currentColor"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
-                                                                        </path>
-                                                                    </svg></a></div>
 
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-                            </div>
-                            <div class="row mt-3 flex-center">
-                                <div class="col-auto position-relative z-index-2">
-                                    <ol class="carousel-indicators">
-                                        <li class="active mx-2" data-bs-target="#carouselEvents"
-                                            data-bs-slide-to="0"></li>
-                                        <li class="mx-2" data-bs-target="#carouselEvents"
-                                            data-bs-slide-to="1"></li>
-
-                                    </ol>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
             </div><!-- end of .container-->
 
         </section>
@@ -491,10 +322,10 @@
 
         <!-- ============================================-->
         <!-- <section> begin ============================-->
-        <section class="bg-100" id="country">
+        <section id="book" class="bg-100" id="country">
 
             <div class="container">
-                <div class="row">
+                <div class="row" data-aos="fade-up">
                     <div class="col-12 mx-auto ">
                         <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center green">
                             {!! get_section(6, 'title')->description !!}
@@ -502,30 +333,34 @@
 
                     </div>
                 </div>
-                <div class="row">
-                    <?php $imagenLibro1 = get_images(4, false, 0, '1-' . $lenguaje); ?>
-                    <?php $imagenLibro2 = get_images(4, false, 0, '2-' . $lenguaje); ?>
+                <div class="row justify-content-center">
+                    <?php $imagenLibro1 = get_images(6, false, 0, '1-' . $lenguaje); ?>
+                    <?php $imagenLibro2 = get_images(6, false, 0, '2-' . $lenguaje); ?>
+                    <div class="
+                    col-12 col-md-6">
+                        @if ($imagenLibro1 !== null)
+                            <img class="
+                        img-fluid" data-aos="fade-in"
+                                src="{{ asset('img/libros') . '/' . $imagenLibro1->image }}">
+                        @endif
+                        <p data-aos="fade-up" class="mt-3 text-bold text-black">{!! get_section(6, 'titlelibro1')->description !!}</p>
+                        <p data-aos="fade-up" class="mt-3">{!! get_section(6, 'description1')->description !!}</p>
+                    </div>
+                    <div class="col-12 col-md-6 text-justify">
+                        @if ($imagenLibro2 !== null)
 
-                    @if ($imagenLibro1 !== null)
-                        <div class="col-12 col-md-6">
-                            <img class="img-fluid"
-                                src="{{ asset('img/terapias') . '/' . $imagenLibro1->image }}">
-                        </div>
+                            <img class="img-fluid" data-aos="fade-in"
+                                src="{{ asset('img/libros') . '/' . $imagenLibro2->image }}">
+                            <p data-aos="fade-up" class="mt-3 text-bold text-black">{!! get_section(6, 'titlelibro2')->description !!}</p>
+                            <p data-aos="fade-up" class="mt-3">{!! get_section(6, 'description2')->description !!}</p>
 
-                    @endif
-                    @if ($imagenLibro2 !== null)
-                        <div class="col-12 col-md-6">
-                            <img class="img-fluid"
-                                src="{{ asset('img/terapias') . '/' . $imagenLibro2->image }}">
-                        </div>
-
-                    @endif
-
+                        @endif
+                    </div>
                 </div>
                 <div class="row mt-3">
                     <div class="col-12">
                         <p class="mb-3">
-                            {!! get_section(6, 'description')->description !!}
+
                         </p>
                     </div>
                 </div>
@@ -537,67 +372,142 @@
         <!-- ============================================-->
 
         <!-- <section> begin ============================-->
-        <section class="bg-100 bg-white" id="contact">
+        <section class="bg-100 bg-white" id="contact" data-aos="fade-in">
 
             <div class="container">
-                <div class="row">
+                <div class="row" data-aos="fade-up">
                     <div class="col-12">
-                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center green">CONTACTO</h5>
+                        <h5 class="fw-light fs-3 fs-lg-5 lh-sm mb-3  text-center green">
+                            {!! get_section(7, 'title')->description !!}
+                        </h5>
                     </div>
                 </div>
-                <div class="row mt-4">
-                    <div class="col-12 col-md-6">
+                <div class="row mt-4" data-aos="fade-up">
+                    <div class="col-12 col-md-6 ">
                         <p>
-                            Escribenos tus dudas u comentarios y en breve nos comunicaremos con tigo
+                            {!! get_section(7, 'description')->description !!}
                         </p>
                         <table>
                             <tr>
                                 <td><i class="fas fa-envelope"></i> &nbsp; </td>
-                                <td>julietahuertahernández@gmail.com</td>
+                                <td>
+                                    <a href="mailto:{{ get_section(7, 'email_contact')->description }}">
+                                        {!! get_section(7, 'email_contact')->description !!}
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
                                 <td><i class="fas fa-phone-alt"></i> &nbsp;</td>
-                                <td>+52 3311359027</td>
+                                <td>
+                                    <a href="https://wa.me/{{ get_section(7, 'celular_contact')->description }}"
+                                        target="_blank">
+                                        {!! get_section(7, 'celular_contact')->description !!}
+                                    </a>
+                                </td>
                             </tr>
                             <tr>
-                                <td></td>
-                                <td></td>
+                                <td> <i class="fab fa-youtube"></i> &nbsp;</td>
+                                <td>
+                                    <a href="https://www.youtube.com/channel/UCGK8jAV5zhFW5xbTIYnyqbw" target="_blank">
+                                        {!! get_section(7, 'youtube_contact')->description !!}
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><i class="fab fa-facebook"></i></td>
+                                <td>
+                                    {!! get_section(7, 'pages_facebook_contact')->description !!}
+                                </td>
                             </tr>
                         </table>
                     </div>
-                    <div class="col-12 col-md-6">
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput">
-                        </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">País</label>
-                            <select name="" id="" class="form-control">
-                                @foreach (config('enums.pais') as $pais)
-                                    <option value="{{ $pais }}"> {{ $pais }} </option>
-                                @endforeach
-                            </select>
-                        </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Ciudad</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput">
-                        </div>
+                    <div class="col-12 col-md-6" data-aos="fade-up">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-12">
+                                    <form id="frm-contact">
+                                        @csrf
+                                        <div class="alert alert-success" role="alert" style="display: none"
+                                            id="contact_send">
+                                            {!! get_section(8, 'contact_received')->description !!}
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">
+                                                {!! get_section(7, 'name')->description !!}
+                                            </label>
+                                            <input type="text" class="form-control" name="name">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">
+                                                {!! get_section(7, 'country')->description !!}
+                                            </label>
+                                            <select name="country" id="" class="form-control">
+                                                @foreach (config('enums.pais') as $pais)
+                                                    <option value="{{ $pais }}"> {{ $pais }} </option>
+                                                @endforeach
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">
+                                                {!! get_section(7, 'city')->description !!}
+                                            </label>
+                                            <input type="text" class="form-control" name="city">
+                                        </div>
 
 
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Teléfono celular</label>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">
+                                                {!! get_section(7, 'telephone')->description !!}
+                                            </label>
 
-                            <input type="text" class="form-control" id="formGroupExampleInput">
+                                            <input type="text" class="form-control" name="telephone">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">
+                                                {!! get_section(7, 'email')->description !!}
+                                            </label>
+                                            <input type="text" class="form-control" name="email">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label for="formGroupExampleInput" class="form-label">
+                                                {!! get_section(7, 'comment')->description !!}
+                                            </label>
+                                            <textarea name="comment" cols="30" rows="3"
+                                                class="form-control"></textarea>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-12 text-end">
+                                                {!! Captcha::img() !!}
+                                            </div>
+                                        </div>
+                                        <div class="mb-3 mt-3">
+                                            <label for="formGroupExampleInput" class="form-label">Captcha</label>
+                                            <p><input type="text" name="captcha" class="form-control"></p>
+                                            <p class="text-danger text-end" id="contact_captcha"></p>
+                                        </div>
+
+                                        <div class="col-12  text-center">
+                                            <div class="spinner-contacto" style="display: none">
+                                                <div class="col-12 text-center mt-1 pb-5">
+                                                    <i class="fas fa-spinner fa-spin text-muted"></i>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-12 text-end">
+
+                                                <button type="submit" class="btn btn-lg btn-primary ">
+                                                    {!! get_section(8, 'send')->description !!}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Correo electrónico</label>
-                            <input type="text" class="form-control" id="formGroupExampleInput">
-                        </div>
-                        <div class="mb-3">
-                            <label for="formGroupExampleInput" class="form-label">Comentario</label>
-                            <textarea name="" id="" cols="30" rows="3" class="form-control"></textarea>
-                        </div>
 
                     </div>
                 </div>
@@ -614,54 +524,55 @@
             <div class="container">
                 <div class="row justify-content-between pb-2 pt-8">
 
-                    <div class="col-auto text-center text-md-left mb-3">
+                    <div class="col-12 col-md-auto  text-center text-md-left mb-3">
                         <ul class="list-inline mb-md-4 mb-lg-0">
                             <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#!">Inicio</a></li>
+                                    href="/">{!! get_section(8, 'menu_home')->description !!}</a></li>
                             <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#!"> Cursos</a></li>
+                                    href="#course"> {!! get_section(8, 'menu_course')->description !!}</a></li>
                             <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#!"> Terapias</a></li>
+                                    href="#therapy"> {!! get_section(8, 'menu_therapy')->description !!}</a></li>
 
 
                         </ul>
                         <ul class="list-inline mb-md-4 mb-lg-0">
                             <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#!"> Taller</a></li>
+                                    href="#workshop"> {!! get_section(8, 'menu_workshop')->description !!}</a></li>
                             <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#!"> Libros</a></li>
+                                    href="#book"> {!! get_section(8, 'menu_book')->description !!}</a></li>
                             <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#!">Contacto</a></li>
+                                    href="#contact">{!! get_section(8, 'menu_contact')->description !!}</a></li>
 
                         </ul>
                     </div>
-                    <div class="col-auto mb-3 text-center text-md-left text-white">
-                        <p>Telefono: 99999999999</p>
-                        <p>Direccion: Calle 44</p>
+                    <div class="col-12 col-md-auto mb-3 text-center text-md-left text-white">
+                        <p>
+                            <a href="https://wa.me/{{ get_section(7, 'celular_contact')->description }}"
+                                class="text-white"> <i class="fas fa-phone-alt"></i> &nbsp;
+                                {!! get_section(7, 'celular_contact')->description !!}
+                            </a>
+                        </p>
+                        <p>
+                            <a href="mailto:{{ get_section(7, 'email_contact')->description }}"
+                                class="text-white">
+                                <i class="fas fa-envelope"></i> &nbsp; {!! get_section(7, 'email_contact')->description !!}
+                            </a>
+                        </p>
                     </div>
-                    <div class="col-auto text-center text-md-left mb-4 d-flex align-items-end">
+                    <div class="col-12 col-md-auto text-center text-md-left mb-4  align-items-end">
                         <ul class="list-unstyled list-inline mb-0">
-                            <li class="list-inline-item me-3"><a class="text-decoration-none" href="#!">
-                                    <svg class="bi bi-facebook" xmlns="http://www.w3.org/2000/svg" width="20"
-                                        height="20" fill="#ffffff" viewBox="0 0 16 16">
-                                        <path
-                                            d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z">
-                                        </path>
-                                    </svg></a></li>
-                            <li class="list-inline-item me-3"><a href="#!">
-                                    <svg class="bi bi-twitter" xmlns="http://www.w3.org/2000/svg" width="20"
-                                        height="20" fill="#ffffff" viewBox="0 0 16 16">
-                                        <path
-                                            d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z">
-                                        </path>
-                                    </svg></a></li>
-                            <li class="list-inline-item me-3"><a href="#!">
-                                    <svg class="bi bi-instagram" xmlns="http://www.w3.org/2000/svg" width="20"
-                                        height="20" fill="#ffffff" viewBox="0 0 16 16">
-                                        <path
-                                            d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z">
-                                        </path>
-                                    </svg></a></li>
+                            <li class="list-inline-item me-3">
+                                <a class="text-decoration-none" target="_blank"
+                                    href="https://www.facebook.com/Escuela-de-Medicina-Hol%C3%ADstica-del-Aura-105822991884601">
+                                    <i class="fab fa-facebook text-white fa-2x"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item me-3">
+                                <a href="https://www.youtube.com/channel/UCGK8jAV5zhFW5xbTIYnyqbw" target="_blank">
+                                    <i class="fab fa-youtube text-white fa-2x"></i>
+                                </a>
+                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -701,6 +612,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="/js/landing.js"></script>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
+
 </body>
 
 </html>

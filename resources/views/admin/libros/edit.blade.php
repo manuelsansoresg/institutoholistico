@@ -43,7 +43,8 @@
                                 <div class="col-md-11">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Título</label>
-                                        <textarea name="titulo" id="titulo">{!! $es_sections[0]->description !!}</textarea>
+                                        <textarea class="summer" name="titulo"
+                                            id="titulo">{!! $es_sections[0]->description !!}</textarea>
 
 
                                         @if ($errors)
@@ -55,11 +56,54 @@
                                 </div>
                                 <div class="col-md-11">
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Descripción</label>
-                                        <textarea name="descripcion" id="descripcion">{!! $es_sections[1]->description !!}</textarea>
+                                        <label for="exampleInputEmail1">Título Libro 1</label>
+                                        <textarea class="summer" name="titlelibro1"
+                                            id="titlelibro1">{!! $es_sections[1]->description !!}</textarea>
+
 
                                         @if ($errors)
-                                            <span class="text-danger"> {{ $errors->first('descripcion') }}</span>
+                                            <span class="text-danger"> {{ $errors->first('titlelibro1') }}</span>
+                                        @endif
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Descripción libro 1</label>
+                                        <textarea class="summer" name="description1"
+                                            id="description1">{!! $es_sections[2]->description !!}</textarea>
+
+                                        @if ($errors)
+                                            <span class="text-danger"> {{ $errors->first('description1') }}</span>
+                                        @endif
+                                    </div>
+                                </div>
+
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Título Libro 2</label>
+                                        <textarea class="summer" name="titlelibro2"
+                                            id="titlelibro2">{!! $es_sections[3]->description !!}</textarea>
+
+
+                                        @if ($errors)
+                                            <span class="text-danger"> {{ $errors->first('titlelibro2') }}</span>
+                                        @endif
+                                    </div>
+
+
+                                </div>
+
+                                <div class="col-md-11">
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Descripción libro 2</label>
+                                        <textarea class="summer" name="description2"
+                                            id="description2">{!! $es_sections[4]->description !!}</textarea>
+
+                                        @if ($errors)
+                                            <span class="text-danger"> {{ $errors->first('description2') }}</span>
                                         @endif
                                     </div>
                                 </div>
@@ -194,7 +238,7 @@
                 ]
             });
 
-            $('#descripcion2').summernote({
+            $('.summer').summernote({
                 height: 200,
                 fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'ObjectSans-Regular',
                     'ObjectSans-Bold'

@@ -24,7 +24,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8 bg-white">
+            <div class="col-12 bg-white">
                 <div class="box py-3 px-3">
 
                     <!-- /.box-header -->
@@ -40,13 +40,17 @@
                         <table id="dataTable" class="table table-bordered table-responsive">
                             <thead>
                                 <tr>
-                                    <th style="width: 10px">#</th>
+                                    <th>#</th>
                                     <th>Imagen1</th>
-                                    <th>Imagen2</th>
                                     <th>Título</th>
-                                    <th>Descripción</th>
+                                    <th>Título Libro 1</th>
+                                    <th>Descripcion Libro 1</th>
+                                    <th>Imagen2</th>
+                                    <th>Título Libro 2</th>
+                                    <th>Descripcion Libro 2</th>
+                                    <th>Imagen2</th>
                                     <th>Lenguaje</th>
-                                    <th style="width:150px"></th>
+                                    <th></th>
                                 </tr>
                             </thead>
 
@@ -63,14 +67,21 @@
                                                         src="{{ asset('img/libros/') . '/' . $images->image }}" alt="">
                                                 @endif
                                             </td>
+                                            <td>{!! $es_section['title'] !!}</td>
+                                            <td> {{ Str::limit(strip_tags($es_section['titlelibro1']->description), 40) }}
+                                            </td>
+                                            <td> {{ Str::limit(strip_tags($es_section['description1']), 40) }}</td>
                                             <td>
                                                 @if ($images2 !== null)
                                                     <img class="preview"
                                                         src="{{ asset('img/libros/') . '/' . $images2->image }}" alt="">
                                                 @endif
                                             </td>
-                                            <td>{!! $es_section['title'] !!}</td>
-                                            <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
+
+                                            <td> {{ Str::limit(strip_tags($es_section['titlelibro2']->description), 40) }}
+                                            </td>
+                                            <td> {{ Str::limit(strip_tags($es_section['description2']->description), 40) }}
+                                            </td>
                                             <td>
                                                 @if ($es_section['lang'] == 'es')
                                                     <span class="badge bg-blue">{{ $es_section['lang'] }}</span>

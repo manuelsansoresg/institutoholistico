@@ -283,20 +283,6 @@ return [
             'url'  => 'admin/contacto',
             'icon' => 'fas fa-file',
         ],
-        ['header' => 'Mi cuenta'],
-        [
-            'text' => 'Perfíl',
-            //'url'  => 'admin/settings',
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-        [
-            'text' => 'Cambiar contraseña',
-            /* 'url'  => 'admin/settings', */
-            'url'  => '#',
-            'icon' => 'fas fa-fw fa-lock',
-        ],
-
 
     ],
 

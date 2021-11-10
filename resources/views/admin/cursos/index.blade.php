@@ -24,7 +24,7 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-12 col-md-8 bg-white">
+            <div class="col-12 bg-white">
                 <div class="box py-3 px-3">
 
                     <!-- /.box-header -->
@@ -40,13 +40,13 @@
                         <table id="dataTable" class="table table-bordered table-responsive">
                             <thead>
                                 <tr>
-                                    <th style="width: 10px">#</th>
+                                    <th>#</th>
                                     <th>Imagen</th>
                                     <th>Título</th>
                                     <th>Descripción</th>
                                     <th>URL video</th>
                                     <th>Lenguaje</th>
-                                    <th style="width:150px"></th>
+                                    <th></th>
                                 </tr>
                             </thead>
 
@@ -59,8 +59,8 @@
                                             <td>{{ $es_section['id'] }}</td>
                                             <td>
                                                 @if ($images !== null)
-                                                    <img class="preview"
-                                                        src="{{ asset('img/cursos/') . '/' . $images->image }}" alt="">
+                                                    <img src="{{ asset('img/cursos/') . '/thumb_' . $images->image }}"
+                                                        alt="">
                                                 @endif
                                             </td>
                                             <td>{!! $es_section['title'] !!}</td>

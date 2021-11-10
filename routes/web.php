@@ -13,9 +13,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'App\Http\Controllers\HomeController@welcome');
+Route::post('/contact/send', 'App\Http\Controllers\HomeController@sendContact');
+
 
 Auth::routes();
 
@@ -57,4 +57,6 @@ Route::group(['prefix' => 'admin'], function () {
 
     Route::resource('/libros', 'App\Http\Controllers\Admin\LibrosController');
     Route::get('/libros/image/destroy/{id}/{setLang}', 'App\Http\Controllers\Admin\LibrosController@destroyImage');
+
+    Route::resource('/contacto', 'App\Http\Controllers\Admin\ContactoController');
 });

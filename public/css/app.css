@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Nunito);
-.preview{width:150px}
-
-/*# sourceMappingURL=app.css.map*/
+/* @import '~bootstrap/scss/bootstrap'; */
+.preview {
+  width: 150px;
+}

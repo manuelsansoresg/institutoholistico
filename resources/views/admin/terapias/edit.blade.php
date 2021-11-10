@@ -126,7 +126,7 @@
 
                             </div>
                             <div class="row">
-                                <div class="col-md-4">
+                                <div class="col-12 text-right">
                                     <div class="form-group">
                                         <button class="btn btn-primary">Guardar</button>
                                     </div>

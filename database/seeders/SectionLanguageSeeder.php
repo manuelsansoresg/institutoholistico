@@ -14,7 +14,10 @@ class SectionLanguageSeeder extends Seeder
      */
     public function run()
     {
-        $sections = ['cabecera', 'slider', 'cursos', 'terapias', 'talleres', 'libros', 'contacto'];
+        $findSection = Section::where('section_id', 6);
+        $findSection->delete();
+
+        $sections = ['cabecera', 'slider', 'cursos', 'terapias', 'talleres', 'libros', 'contacto', 'setting'];
 
         foreach ($sections as $section) {
             $a_section = new Section();

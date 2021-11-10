@@ -3,10 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\SectionLanguage;
 use Illuminate\Http\Request;
 
 class ContactoController extends Controller
 {
+    protected $path_image;
+
+    public function __construct()
+    {
+        $this->path_image = 'img/contacto';
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +22,8 @@ class ContactoController extends Controller
      */
     public function index()
     {
-        //
+        $es_sections = SectionLanguage::getAllContacto();
+        return view('admin.contacto.index', compact('es_sections'));
     }
 
     /**
@@ -55,9 +64,12 @@ class ContactoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($lang)
     {
-        //
+        $es_sections = SectionLanguage::where('lang', $lang)->where('section_id', 7)->get();
+        $section_id = 1;
+        $set_lang = $lang;
+        return view('admin.contacto.edit', compact('es_sections', 'section_id', 'set_lang'));
     }
 
     /**
@@ -69,7 +81,11 @@ class ContactoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $sections = SectionLanguage::editContacto($request, $this->path_image);
+        if ($sections) {
+            flash('Elemento editado');
+            return redirect('admin/contacto');
+        }
     }
 
     /**

@@ -67,7 +67,8 @@ class TalleresController extends Controller
     public function edit($lang)
     {
         $es_sections = SectionLanguage::where('lang', $lang)->where('section_id', 5)->get();
-        $image = ImagesSection::where('section_id', 5)->where('is_movil', 0)->first();
+        $image = get_images(5, false, 0, $lang);
+
         $image_thumb = ImagesSection::where('section_id', 5)->where('is_movil', 1)->first();
         $section_id = 1;
         $set_lang = $lang;

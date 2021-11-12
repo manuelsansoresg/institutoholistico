@@ -79,7 +79,7 @@
 
                                             <td>
                                                 {{ Form::open(['route' => ['cabecera.destroy', $es_section['id']], 'class' => 'form-inline', 'method' => 'DELETE']) }}
-                                                <a href="/#cabecera" target="_blank" class="btn btn-success btn-block"><i
+                                                <a href="/" target="_blank" class="btn btn-success btn-block"><i
                                                         class="far fa-eye"></i> </a>
 
                                                 <a href="{{ route('cabecera.edit', $es_section['lang']) }}"

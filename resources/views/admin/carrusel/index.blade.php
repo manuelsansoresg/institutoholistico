@@ -79,7 +79,7 @@
 
                                             <td>
                                                 {{ Form::open(['route' => ['carrusel.destroy', $es_section['id']], 'class' => 'form-inline', 'method' => 'DELETE']) }}
-                                                <a href="/#carrusel" target="_blank" class="btn btn-success btn-block"><i
+                                                <a href="/#slider" target="_blank" class="btn btn-success btn-block"><i
                                                         class="far fa-eye"></i> </a>
                                                 <a href="/admin/carrusel/images/{{ $es_section['lang'] }}"
                                                     class="btn btn-secondary btn-block"><i class="fas fa-images"></i></a>

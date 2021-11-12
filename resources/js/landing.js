@@ -69,3 +69,17 @@ function sendContact() {
         .then(function () {
         }); 
 }
+
+window.refreshCaptcha = function (){
+    $.ajax({
+    url: "/refereshcapcha",
+    type: 'get',
+      dataType: 'html',        
+      success: function(json) {
+        $('.refereshrecapcha').html(json);
+      },
+      error: function(data) {
+        alert('Try Again.');
+      }
+    });
+    }

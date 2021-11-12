@@ -35,6 +35,11 @@ class HomeController extends Controller
         return view('welcome');
     }
 
+    public function refereshCapcha()
+    {
+        return captcha_img('flat');
+    }
+
     public function sendContact(Request $request)
     {
         $errorCaptcha = null;
@@ -45,7 +50,7 @@ class HomeController extends Controller
                 'message' => 'invalid captcha',
             ]);
         } else {
-            Mail::to('contacto@xpertsystems.com.mx')->send(new ContactEmail($request->all()));
+            Mail::to('julietahuertahernandez@gmail.com')->send(new ContactEmail($request->all()));
             return response()->json([
                 'message' => 'ok',
             ]);

@@ -2,6 +2,8 @@
 <html lang="en-US" dir="ltr">
 
 <head>
+    <?php $lenguaje = session('lang') == null ? 'es' : session('lang'); ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -16,12 +18,12 @@
     <!-- ===============================================-->
     <!--    Favicons-->
     <!-- ===============================================-->
-    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon-16x16.png">
-    <link rel="shortcut icon" type="image/x-icon" href="/img/favicons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/img/favicons/favicon.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/img/favicons/favicon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="/img/favicons/favicon.png">
     <link rel="manifest" href="/img/favicons/manifest.json">
-    <meta name="msapplication-TileImage" content="/img/favicons/mstile-150x150.png">
+    <meta name="msapplication-TileImage" content="/img/favicons/favicon.png">
     <meta name="theme-color" content="#ffffff">
 
 
@@ -70,9 +72,12 @@
                     </ul>
                     <form class="ps-lg-5">
                         <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
-                            <li class="nav-item px-2"> <a href="{{ url('lang', ['es']) }}">ES</a> </li>
-                            <li class="nav-item px-2"> <a href="{{ url('lang', ['en']) }}">EN</a> </li>
-                            <li class="nav-item px-2"> <a href="{{ url('lang', ['fr']) }}">FR</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['es']) }}"
+                                    class="{{ $lenguaje == 'es' ? 'green' : '' }}">ES</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['en']) }}"
+                                    class="{{ $lenguaje == 'en' ? 'green' : '' }}">EN</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['fr']) }}"
+                                    class="{{ $lenguaje == 'fr' ? 'green' : '' }}">FR</a> </li>
                         </ul>
                     </form>
                 </div>
@@ -131,7 +136,7 @@
 
 
         <!-- ============================================-->
-        <section class="bg-100 py-5">
+        <section class="bg-100 py-5" id="slider">
             <div class="container">
                 <div class="row">
                     <div class="col-12 text-center">
@@ -147,7 +152,7 @@
         </section>
         <!-- <section> begin ============================-->
         <section class="bg-100 py-5">
-            <?php $lenguaje = session('lang') == null ? 'es' : session('lang'); ?>
+
             <div class="col-12">
                 <div class="carousel-wrap" id="carousel">
                     <div class="owl-carousel owl-theme">
@@ -427,10 +432,7 @@
                                 <div class="col-12">
                                     <form id="frm-contact">
                                         @csrf
-                                        <div class="alert alert-success" role="alert" style="display: none"
-                                            id="contact_send">
-                                            {!! get_section(8, 'contact_received')->description !!}
-                                        </div>
+
                                         <div class="mb-3">
                                             <label for="formGroupExampleInput" class="form-label">
                                                 {!! get_section(7, 'name')->description !!}
@@ -478,7 +480,13 @@
                                         </div>
                                         <div class="row">
                                             <div class="col-12 text-end">
-                                                {!! Captcha::img() !!}
+                                                <div class="form-group refereshrecapcha">
+                                                    {!! captcha_img('flat') !!}
+                                                </div>
+
+                                                <a href="javascript:void(0)" onclick="refreshCaptcha()"><i
+                                                        class="fas fa-sync-alt"></i></a>
+
                                             </div>
                                         </div>
                                         <div class="mb-3 mt-3">
@@ -493,6 +501,11 @@
                                                     <i class="fas fa-spinner fa-spin text-muted"></i>
                                                 </div>
                                             </div>
+                                        </div>
+
+                                        <div class="alert alert-success" role="alert" style="display: none"
+                                            id="contact_send">
+                                            {!! get_section(8, 'contact_received')->description !!}
                                         </div>
 
                                         <div class="row">

@@ -27,17 +27,17 @@
                                 <h4> {{ $request['name'] }} quiere comunicarse con nosotros.</h4>
                                 <p class="lead">Datos del usuario : </p>
                                 <p class="callout">
-                                    {!! get_section(7, 'name')->description !!}: {{ $request['name'] }}
+                                    Nombre: {{ $request['name'] }}
                                     <br>
-                                    {!! get_section(7, 'country')->description !!}: {{ $request['country'] }}
+                                    Pais: {{ $request['country'] }}
                                     <br>
-                                    {!! get_section(7, 'city')->description !!}: {{ $request['city'] }}
+                                    Ciudad: {{ $request['city'] }}
                                     <br>
-                                    {!! get_section(7, 'telephone')->description !!} : {{ $request['telephone'] }}
+                                    Teléfono celular : {{ $request['telephone'] }}
                                     <br>
-                                    {!! get_section(7, 'email')->description !!} : {{ $request['email'] }}
+                                    Correo : {{ $request['email'] }}
                                     <br>
-                                    {!! get_section(7, 'comment')->description !!} : {{ $request['comment'] }}
+                                    Comentario : {{ $request['comment'] }}
                                     <br>
                                 </p>
 

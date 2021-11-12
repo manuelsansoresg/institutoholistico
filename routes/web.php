@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@welcome');
+Route::get('/refereshcapcha', 'App\Http\Controllers\HomeController@refereshCapcha');
 Route::post('/contact/send', 'App\Http\Controllers\HomeController@sendContact');
 
 

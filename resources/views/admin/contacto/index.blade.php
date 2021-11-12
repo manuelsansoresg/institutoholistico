@@ -78,7 +78,7 @@
 
                                             <td>
                                                 {{ Form::open(['route' => ['contacto.destroy', $es_section['id']], 'class' => 'form-inline', 'method' => 'DELETE']) }}
-                                                <a href="/#contacto" target="_blank" class="btn btn-success btn-block"><i
+                                                <a href="/#contact" target="_blank" class="btn btn-success btn-block"><i
                                                         class="far fa-eye"></i> </a>
 
                                                 <a href="{{ route('contacto.edit', $es_section['lang']) }}"

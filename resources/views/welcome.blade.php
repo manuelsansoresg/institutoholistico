@@ -48,36 +48,23 @@
     <!-- ===============================================-->
     <main class="main" id="top">
         <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3" data-navbar-on-scroll="data-navbar-on-scroll">
-            <div class="container"><a class="navbar-brand d-flex align-items-center fw-semi-bold fs-3"
-                    href="index.html"> <img class="me-3 logoheader" src="/img/gallery/logo.png" alt="" /></a>
-                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation"><span
-                        class="navbar-toggler-icon"></span></button>
+            <div class="container"><a class="navbar-brand d-flex align-items-center fw-semi-bold fs-3" href="index.html"> <img class="me-3 logoheader" src="/img/gallery/logo.png" alt="" /></a>
+                <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
                     <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link fw-medium active"
-                                aria-current="page" href="/"> {!! get_section(8, 'menu_home')->description !!}</a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#course">{!! get_section(8, 'menu_course')->description !!}</a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#therapy">{!! get_section(8, 'menu_therapy')->description !!} </a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#workshop">{!! get_section(8, 'menu_workshop')->description !!} </a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#book">{!! get_section(8, 'menu_book')->description !!} </a></li>
-                        <li class="nav-item px-2" data-anchor="data-anchor"><a class="nav-link"
-                                href="#contact">{!! get_section(8, 'menu_contact')->description !!} </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a onclick="linkActivate('menu_home')" id="menu_home" class="nav-link active" aria-current="page" href="#home"> {!! get_section(8, 'menu_home')->description !!}</a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a onclick="linkActivate('menu_course')" id="menu_course" class="nav-link" href="#course">{!! get_section(8, 'menu_course')->description !!}</a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a onclick="linkActivate('menu_therapy')" id="menu_therapy" class="nav-link" href="#therapy">{!! get_section(8, 'menu_therapy')->description !!} </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a onclick="linkActivate('menu_workshop')" id="menu_workshop" class="nav-link" href="#workshop">{!! get_section(8, 'menu_workshop')->description !!} </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a onclick="linkActivate('menu_book')" id="menu_book" class="nav-link" href="#book">{!! get_section(8, 'menu_book')->description !!} </a></li>
+                        <li class="nav-item px-2" data-anchor="data-anchor"><a onclick="linkActivate('menu_contact')" id="menu_contact" onclick="" activate"" class="nav-link" href="#contact">{!! get_section(8, 'menu_contact')->description !!} </a></li>
 
                     </ul>
                     <form class="ps-lg-5">
                         <ul class="navbar-nav mx-auto pt-2 pt-lg-0 font-base">
-                            <li class="nav-item px-2"> <a href="{{ url('lang', ['es']) }}"
-                                    class="{{ $lenguaje == 'es' ? 'green' : '' }}">ES</a> </li>
-                            <li class="nav-item px-2"> <a href="{{ url('lang', ['en']) }}"
-                                    class="{{ $lenguaje == 'en' ? 'green' : '' }}">EN</a> </li>
-                            <li class="nav-item px-2"> <a href="{{ url('lang', ['fr']) }}"
-                                    class="{{ $lenguaje == 'fr' ? 'green' : '' }}">FR</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['es']) }}" class="{{ $lenguaje == 'es' ? 'green' : '' }}">ES</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['en']) }}" class="{{ $lenguaje == 'en' ? 'green' : '' }}">EN</a> </li>
+                            <li class="nav-item px-2"> <a href="{{ url('lang', ['fr']) }}" class="{{ $lenguaje == 'fr' ? 'green' : '' }}">FR</a> </li>
                         </ul>
                     </form>
                 </div>
@@ -85,13 +72,11 @@
         </nav>
         <section class="py-0" id="home">
             <?php $image = get_images(1); ?>
-            <div class="bg-holder d-none d-md-block" data-aos="fade-in"
-                style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right bottom;background-size:contain;margin-top:5.625rem;">
+            <div class="bg-holder d-none d-md-block" data-aos="fade-in" style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right bottom;background-size:contain;margin-top:5.625rem;">
             </div>
             <!--/.bg-holder-->
 
-            <div class="bg-holder d-block d-md-none" data-aos="fade-in"
-                style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right top;background-size:contain;margin-top:5.625rem;">
+            <div class="bg-holder d-block d-md-none" data-aos="fade-in" style="background-image:url({{ asset('img/cabecera/') . '/' . $image->image }});background-position:right top;background-size:contain;margin-top:5.625rem;">
             </div>
             <!--/.bg-holder-->
 
@@ -104,20 +89,15 @@
                         <p class="mb-5 fs-1 lh-lg" data-aos="fade-up">
                             {!! get_section(1, 'description')->description !!}
                         </p>
-                        <a class="btn btn-lg btn-primary hover-top btn-glow" data-aos="fade-up"
-                            href="#">{!! get_section(8, 'menu_contact')->description !!}
-                            <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25"
-                                height="25" fill="currentColor" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd"
-                                    d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
+                        <a class="btn btn-lg btn-primary hover-top btn-glow" data-aos="fade-up" href="#contact">{!! get_section(8, 'menu_contact')->description !!}
+                            <svg class="bi bi-arrow-right-short ms-2" xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z">
                                 </path>
                             </svg></a>
                         <div class="mt-5 mt-xl-6" data-aos="fade-in">
                             <ul class="list-unstyled list-inline mb-0">
                                 <li class="list-inline-item me-3">
-                                    <a class="text-decoration-none"
-                                        href="https://www.facebook.com/Escuela-de-Medicina-Hol%C3%ADstica-del-Aura-105822991884601"
-                                        target="_blank">
+                                    <a class="text-decoration-none" href="https://www.facebook.com/Escuela-de-Medicina-Hol%C3%ADstica-del-Aura-105822991884601" target="_blank">
                                         <i class="fab fa-facebook"></i>
                                     </a>
                                 </li>
@@ -159,7 +139,7 @@
 
                         <?php $images = get_images(2, false, 1, $lenguaje); ?>
                         @foreach ($images as $image)
-                            <div><img src="{{ asset('img/carrusel') . '/' . $image->image }}"></div>
+                        <div><img src="{{ asset('img/carrusel') . '/' . $image->image }}"></div>
                         @endforeach
                     </div>
 
@@ -193,14 +173,11 @@
                     <?php $video = get_section(3, 'video')->description; ?>
                     <?php $formatVideo = 'https://www.youtube.com/embed/' . get_youtube_id_from_url($video); ?>
                     @if ($video !== '' && $video !== '&nbsp;')
-                        <div class="col-12 col-md-6 text-center" data-aos="fade-up">
+                    <div class="col-12 col-md-6 text-center" data-aos="fade-up">
 
-                            <iframe class="youtube" height="315" src="{{ $formatVideo }}"
-                                title="YouTube video player" frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                        <iframe class="youtube" height="315" src="{{ $formatVideo }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-                        </div>
+                    </div>
 
                     @endif
 
@@ -214,10 +191,10 @@
                         </p>
                     </div>
                     @if ($image_cursos !== null)
-                        <div class="col-12 col-md-6" data-aos="fade-in">
+                    <div class="col-12 col-md-6" data-aos="fade-in">
 
-                            <img class="img-fluid" src="{{ asset('img/cursos') . '/' . $image_cursos->image }}">
-                        </div>
+                        <img class="img-fluid" src="{{ asset('img/cursos') . '/' . $image_cursos->image }}">
+                    </div>
 
                     @endif
 
@@ -251,17 +228,15 @@
                     <?php $imagenTerapia2 = get_images(4, false, 0, '2-' . $lenguaje); ?>
 
                     @if ($imagenTerapia1 !== null)
-                        <div class="col-12 col-md-6 text-center" data-aos="fade-in">
-                            <img class="img-fluid"
-                                src="{{ asset('img/terapias') . '/' . $imagenTerapia1->image }}">
-                        </div>
+                    <div class="col-12 col-md-6 text-center" data-aos="fade-in">
+                        <img class="img-fluid" src="{{ asset('img/terapias') . '/' . $imagenTerapia1->image }}">
+                    </div>
 
                     @endif
                     @if ($imagenTerapia2 !== null)
-                        <div class="col-12 col-md-6 text-center" data-aos="fade-in">
-                            <img class="img-fluid"
-                                src="{{ asset('img/terapias') . '/' . $imagenTerapia2->image }}">
-                        </div>
+                    <div class="col-12 col-md-6 text-center" data-aos="fade-in">
+                        <img class="img-fluid" src="{{ asset('img/terapias') . '/' . $imagenTerapia2->image }}">
+                    </div>
 
                     @endif
 
@@ -300,10 +275,9 @@
                 <div class="row justify-content-center" data-aos="fade-up">
                     <?php $imagentaller = get_images(5, false, 0, $lenguaje); ?>
                     @if ($imagentaller !== null)
-                        <div class="col-12 col-md-6">
-                            <img class="img-fluid"
-                                src="{{ asset('img/talleres') . '/' . $imagentaller->image }}">
-                        </div>
+                    <div class="col-12 col-md-6">
+                        <img class="img-fluid" src="{{ asset('img/talleres') . '/' . $imagentaller->image }}">
+                    </div>
 
                     @endif
 
@@ -344,9 +318,8 @@
                     <div class="
                     col-12 col-md-6">
                         @if ($imagenLibro1 !== null)
-                            <img class="
-                        img-fluid" data-aos="fade-in"
-                                src="{{ asset('img/libros') . '/' . $imagenLibro1->image }}">
+                        <img class="
+                        img-fluid" data-aos="fade-in" src="{{ asset('img/libros') . '/' . $imagenLibro1->image }}">
                         @endif
                         <p data-aos="fade-up" class="mt-3 text-bold text-black">{!! get_section(6, 'titlelibro1')->description !!}</p>
                         <p data-aos="fade-up" class="mt-3">{!! get_section(6, 'description1')->description !!}</p>
@@ -354,10 +327,9 @@
                     <div class="col-12 col-md-6 text-justify">
                         @if ($imagenLibro2 !== null)
 
-                            <img class="img-fluid" data-aos="fade-in"
-                                src="{{ asset('img/libros') . '/' . $imagenLibro2->image }}">
-                            <p data-aos="fade-up" class="mt-3 text-bold text-black">{!! get_section(6, 'titlelibro2')->description !!}</p>
-                            <p data-aos="fade-up" class="mt-3">{!! get_section(6, 'description2')->description !!}</p>
+                        <img class="img-fluid" data-aos="fade-in" src="{{ asset('img/libros') . '/' . $imagenLibro2->image }}">
+                        <p data-aos="fade-up" class="mt-3 text-bold text-black">{!! get_section(6, 'titlelibro2')->description !!}</p>
+                        <p data-aos="fade-up" class="mt-3">{!! get_section(6, 'description2')->description !!}</p>
 
                         @endif
                     </div>
@@ -404,8 +376,7 @@
                             <tr>
                                 <td><i class="fas fa-phone-alt"></i> &nbsp;</td>
                                 <td>
-                                    <a href="https://wa.me/{{ get_section(7, 'celular_contact')->description }}"
-                                        target="_blank">
+                                    <a href="https://wa.me/{{ get_section(7, 'celular_contact')->description }}" target="_blank">
                                         {!! get_section(7, 'celular_contact')->description !!}
                                     </a>
                                 </td>
@@ -445,7 +416,7 @@
                                             </label>
                                             <select name="country" id="" class="form-control">
                                                 @foreach (config('enums.pais') as $pais)
-                                                    <option value="{{ $pais }}"> {{ $pais }} </option>
+                                                <option value="{{ $pais }}"> {{ $pais }} </option>
                                                 @endforeach
                                             </select>
                                         </div>
@@ -475,8 +446,7 @@
                                             <label for="formGroupExampleInput" class="form-label">
                                                 {!! get_section(7, 'comment')->description !!}
                                             </label>
-                                            <textarea name="comment" cols="30" rows="3"
-                                                class="form-control"></textarea>
+                                            <textarea name="comment" cols="30" rows="3" class="form-control"></textarea>
                                         </div>
                                         <div class="row">
                                             <div class="col-12 text-end">
@@ -484,8 +454,7 @@
                                                     {!! captcha_img('flat') !!}
                                                 </div>
 
-                                                <a href="javascript:void(0)" onclick="refreshCaptcha()"><i
-                                                        class="fas fa-sync-alt"></i></a>
+                                                <a href="javascript:void(0)" onclick="refreshCaptcha()"><i class="fas fa-sync-alt"></i></a>
 
                                             </div>
                                         </div>
@@ -503,8 +472,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="alert alert-success" role="alert" style="display: none"
-                                            id="contact_send">
+                                        <div class="alert alert-success" role="alert" style="display: none" id="contact_send">
                                             {!! get_section(8, 'contact_received')->description !!}
                                         </div>
 
@@ -539,35 +507,27 @@
 
                     <div class="col-12 col-md-auto  text-center text-md-left mb-3">
                         <ul class="list-inline mb-md-4 mb-lg-0">
-                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="/">{!! get_section(8, 'menu_home')->description !!}</a></li>
-                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#course"> {!! get_section(8, 'menu_course')->description !!}</a></li>
-                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#therapy"> {!! get_section(8, 'menu_therapy')->description !!}</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none" href="#home">{!! get_section(8, 'menu_home')->description !!}</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none" href="#course"> {!! get_section(8, 'menu_course')->description !!}</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none" href="#therapy"> {!! get_section(8, 'menu_therapy')->description !!}</a></li>
 
 
                         </ul>
                         <ul class="list-inline mb-md-4 mb-lg-0">
-                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#workshop"> {!! get_section(8, 'menu_workshop')->description !!}</a></li>
-                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#book"> {!! get_section(8, 'menu_book')->description !!}</a></li>
-                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none"
-                                    href="#contact">{!! get_section(8, 'menu_contact')->description !!}</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none" href="#workshop"> {!! get_section(8, 'menu_workshop')->description !!}</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none" href="#book"> {!! get_section(8, 'menu_book')->description !!}</a></li>
+                            <li class="mb-3 list-inline-item"><a class="text-100 fw-light text-decoration-none" href="#contact">{!! get_section(8, 'menu_contact')->description !!}</a></li>
 
                         </ul>
                     </div>
                     <div class="col-12 col-md-auto mb-3 text-center text-md-left text-white">
                         <p>
-                            <a href="https://wa.me/{{ get_section(7, 'celular_contact')->description }}"
-                                class="text-white"> <i class="fas fa-phone-alt"></i> &nbsp;
+                            <a href="https://wa.me/{{ get_section(7, 'celular_contact')->description }}" class="text-white"> <i class="fas fa-phone-alt"></i> &nbsp;
                                 {!! get_section(7, 'celular_contact')->description !!}
                             </a>
                         </p>
                         <p>
-                            <a href="mailto:{{ get_section(7, 'email_contact')->description }}"
-                                class="text-white">
+                            <a href="mailto:{{ get_section(7, 'email_contact')->description }}" class="text-white">
                                 <i class="fas fa-envelope"></i> &nbsp; {!! get_section(7, 'email_contact')->description !!}
                             </a>
                         </p>
@@ -575,8 +535,7 @@
                     <div class="col-12 col-md-auto text-center text-md-left mb-4  align-items-end">
                         <ul class="list-unstyled list-inline mb-0">
                             <li class="list-inline-item me-3">
-                                <a class="text-decoration-none" target="_blank"
-                                    href="https://www.facebook.com/Escuela-de-Medicina-Hol%C3%ADstica-del-Aura-105822991884601">
+                                <a class="text-decoration-none" target="_blank" href="https://www.facebook.com/Escuela-de-Medicina-Hol%C3%ADstica-del-Aura-105822991884601">
                                     <i class="fab fa-facebook text-white fa-2x"></i>
                                 </a>
                             </li>
@@ -620,8 +579,7 @@
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="/js/theme.js"></script>
 
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
     <script src="/js/landing.js"></script>

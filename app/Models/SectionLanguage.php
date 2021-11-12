@@ -205,7 +205,7 @@ class SectionLanguage extends Model
     public static function editTerapia($request, $path)
     {
         SectionLanguage::where('lang', $request->lang)->where('name', 'title')->where('section_id', 4)
-            ->update(['description' => $request->titulo]);
+            ->update(['description' => $request->title]);
 
         SectionLanguage::where('lang', $request->lang)->where('name', 'description')->where('section_id', 4)
             ->update(['description' => $request->descripcion]);

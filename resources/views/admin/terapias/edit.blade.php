@@ -43,11 +43,11 @@
                                 <div class="col-md-11">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Título</label>
-                                        <textarea name="titulo" id="titulo">{!! $es_sections[0]->description !!}</textarea>
+                                        <textarea name="title" id="title">{!! $es_sections[0]->description !!}</textarea>
 
 
                                         @if ($errors)
-                                            <span class="text-danger"> {{ $errors->first('titulo') }}</span>
+                                            <span class="text-danger"> {{ $errors->first('title') }}</span>
                                         @endif
                                     </div>
 
@@ -146,7 +146,7 @@
     <script src="{{ asset('vendor_assets/summernote/summernote.min.js') }}"></script>
     <script>
         $(document).ready(function() {
-            $('#titulo').summernote({
+            $('#title').summernote({
                 height: 50,
                 fontNames: ['Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', 'ObjectSans-Regular',
                     'ObjectSans-Bold'

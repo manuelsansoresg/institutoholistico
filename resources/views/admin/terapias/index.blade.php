@@ -57,6 +57,8 @@
                                     <tbody>
                                         <tr>
                                             <td>{{ $es_section['id'] }}</td>
+                                             <td>{!! $es_section['title'] !!}</td>
+
                                             <td>
                                                 @if ($images !== null)
                                                     <img class="preview"
@@ -69,8 +71,7 @@
                                                         src="{{ asset('img/terapias/') . '/' . $images2->image }}" alt="">
                                                 @endif
                                             </td>
-                                            <td>{!! $es_section['title'] !!}</td>
-                                            <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
+                                                                                       <td> {{ Str::limit(strip_tags($es_section['description']), 40) }}</td>
                                             <td>
                                                 @if ($es_section['lang'] == 'es')
                                                     <span class="badge bg-blue">{{ $es_section['lang'] }}</span>

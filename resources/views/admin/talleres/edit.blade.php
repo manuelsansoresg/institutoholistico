@@ -1,6 +1,6 @@
 @extends('adminlte::page')
 
-@section('title', 'Terapias')
+@section('title', 'Talleres')
 
 @section('content_header')
     <link rel="stylesheet" href="{{ asset('vendor_assets/summernote/summernote-bs4.css') }}">

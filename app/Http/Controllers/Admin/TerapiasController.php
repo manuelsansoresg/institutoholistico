@@ -67,12 +67,13 @@ class TerapiasController extends Controller
      */
     public function edit($lang)
     {
-        $es_sections = SectionLanguage::where('lang', $lang)->where('section_id', 4)->get();
-        $image = get_images(4, false, 0, '1-' . $lang);
-        $image2 = get_images(4, false, 0, '2-' . $lang);
-        $image_thumb = ImagesSection::where('section_id', 4)->where('is_movil', 1)->first();
-        $section_id = 1;
-        $set_lang = $lang;
+        $es_sections    = SectionLanguage::where('lang', $lang)->where('section_id', 4)->get();
+        $image          = get_images(4, false, 0, '1-' . $lang);
+        $image2         = get_images(4, false, 0, '2-' . $lang);
+        $image_thumb    = ImagesSection::where('section_id', 4)->where('is_movil', 1)->first();
+        $section_id     = 1;
+        $set_lang       = $lang;
+
         return view('admin.terapias.edit', compact('es_sections', 'image', 'image2', 'section_id', 'set_lang', 'image_thumb'));
     }
 
